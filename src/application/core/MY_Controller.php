@@ -30,6 +30,9 @@ class MY_Controller extends CI_Controller
 
 
 
+        //Load header and footer
+        $this->data['header'] = $this->load->view('base/header',array(),true);
+        $this->data['footer'] = $this->load->view('base/footer',array(),true);
 
 
 
@@ -230,8 +233,17 @@ class MY_Controller extends CI_Controller
     private function init_css_files()
     {
         $urls = array(
-            //'/assets/css/bootstrap.min.css',
-            //'/assets/vendor/mmenu-js-master/dist/mmenu.css',
+            '/assets/css/bootstrap.min.css',
+            '/assets/css/style.css',
+            '/assets/css/responsive.css',
+            '/assets/css/font-awesome.min.css',
+            '/assets/css/animate.css',
+            '/assets/css/prettyPhoto.css',
+            '/assets/css/owl.carousel.css',
+            '/assets/css/owl.theme.css',
+            '/assets/css/flexslider.css',
+            '/assets/css/cd-hero.css',
+            '/assets/css/presets/preset3.css',
 
         );
         foreach ($urls as $url)
@@ -240,8 +252,21 @@ class MY_Controller extends CI_Controller
     private function init_js_files()
     {
         $urls = array(
-            //"/assets/js/jquery-2.2.4.min.js",
-            //"/assets/js/common_script_original.js",
+            '/assets/js/jquery.js',
+            '/assets/js/bootstrap.min.js',
+            '/assets/js/style-switcher.js',
+            '/assets/js/owl.carousel.js',
+            '/assets/js/jquery.prettyPhoto.js',
+            '/assets/js/jquery.flexslider.js',
+            '/assets/js/cd-hero.js',
+            '/assets/js/isotope.js',
+            '/assets/js/ini.isotope.js',
+            '/assets/js/wow.min.js',
+            '/assets/js/smoothscroll.js',
+            '/assets/js/jquery.easing.1.3.js',
+            '/assets/js/jquery.counterup.min.js',
+            '/assets/js/waypoints.min.js',
+            '/assets/js/custom.js',
 
 
         );
