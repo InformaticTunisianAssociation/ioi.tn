@@ -30,6 +30,8 @@ class Auth extends MY_Controller {
     public function login()
 	{
 
+
+        //die(password_hash('12345', PASSWORD_DEFAULT));
         //LOAD JS/CSS FILES
         //
         //$this->load_css('/assets/study/css/auth/login.css');
@@ -41,7 +43,7 @@ class Auth extends MY_Controller {
 	    $this->data['header'] = null;
 	    $this->data['footer'] = null;
 	    $this->data['content'] = $this->load->view('auth/login',array(
-	        'site_name' => $this->settings_model->get('site_name')
+
         ),true);
 
 	    if(isset($_SESSION['redirect_url']))
@@ -55,10 +57,12 @@ class Auth extends MY_Controller {
 
     public function register()
     {
+
+
         //LOAD JS/CSS FILES
         //
-        $this->load_css('/assets/study/css/auth/register.css');
-        $this->load_js('/assets/study/js/auth/register.js');
+        //$this->load_css('/assets/study/css/auth/register.css');
+        //$this->load_js('/assets/study/js/auth/register.js');
         //
         //LOAD JS/CSS FILES
         //$this->load->view('signup/index');
@@ -82,6 +86,8 @@ class Auth extends MY_Controller {
         $password = $this->input->post('password',true);
         //Todo: do more XSS filtering and initial validation before calling the database
 
+
+
         $user = null;
         if($username && $password)
             $user = $this->users_model->login($username,$password);
@@ -89,39 +95,21 @@ class Auth extends MY_Controller {
 
         if($user)
         {
-            //Update the last_signin property of the user
-            $current_time = date('Y-m-d H:i:s',time());
-            $this->users_model->update(array(
-                'id' => $user->id,
-                'last_signin' => $current_time
-            ));
-            $user->last_signin = $current_time;
+
             //user does exist so we log him in, we store his info in the session
+            //echo 'correct';
+            //die();
             $_SESSION['user'] = $user;
+
+
 
             //Get the redirect url
             $redirect_url = isset($_SESSION['redirect_url']) ? $_SESSION['redirect_url'] : base_url();
-
-            //If user logs in, Store that activity in database
-            $this->add_activity(array(
-                'type' => 'login',
-                'user_id' =>$user->id
-            ));
-
-            echo json_encode(array(
-                'result' => 'success', //Could be success or failure
-                'error' => null, // Will only be used on failure
-                'redirect_link' => $redirect_url //will only be used on success
-            ));
+            redirect($redirect_url);
         }
         else
         {
-            echo json_encode(array(
-                'result' => 'failure', //Could be success or failure
-                //'error' => 'Could not login , please check your email address or password!', // Will only be used on failure
-                'error' => lang('auth login msg wrong'),
-                'redirect_link' => null //will only be used on success
-            ));
+            redirect('/login');
         }
 
     }
@@ -137,17 +125,10 @@ class Auth extends MY_Controller {
 
         if(isset($_SESSION['user']))
         {
-            //If user logs in, Store that activity in database
-            $this->add_activity(array(
-                'type' => 'logout',
-            ));
+
             unset($_SESSION['user']);
         }
-        echo json_encode(array(
-            'result' => 'success', //Could be success or failure
-            'error' => null, // Will only be used on failure
-            'redirect_link' => base_url() //will only be used on success
-        ));
+        redirect(base_url());
     }
 
     public function do_register()

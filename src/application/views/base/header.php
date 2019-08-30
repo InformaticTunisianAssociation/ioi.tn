@@ -33,6 +33,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Join Us <i class="fa fa-angle-down"></i></a>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $username ?> <i class="fa fa-angle-down"></i></a>
+                    </li>
+
+
+
 
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>

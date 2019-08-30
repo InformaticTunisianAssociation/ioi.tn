@@ -31,7 +31,9 @@ class MY_Controller extends CI_Controller
 
 
         //Load header and footer
-        $this->data['header'] = $this->load->view('base/header',array(),true);
+        $this->data['header'] = $this->load->view('base/header',array(
+            'username' => isset($this->user->id) ? $this->user->username : null
+        ),true);
         $this->data['footer'] = $this->load->view('base/footer',array(),true);
 
 
