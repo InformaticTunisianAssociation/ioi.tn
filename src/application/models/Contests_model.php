@@ -28,4 +28,12 @@ class Contests_model extends MY_Model
             return false;
     }
 
+    public function get_where($params, $table = null)
+    {
+        $this->db->select('contestants.*, contests.title');
+        $this->db->join('contests','contests.id = contestants.contest_id','inner');
+        $this->db->where($params);
+        return $this->db->get('contestants')->result();
+    }
+
 }

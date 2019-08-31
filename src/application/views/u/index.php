@@ -49,23 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Medal</th>
                         </tr>
 
-                        <?php
-                        foreach($constestants as $contestant): ?>
-                            <?php echo "<tr>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>".$contestant->score."</td>"; ?>
-                                <?php echo "<td>"."</td>"; ?>
-                                <?php echo "<td>".$contestant->medal."</td>"; ?>
-                            <?php echo "</tr>"; ?>
-                        <?php endforeach; ?>
+                       <?php echo $competitions_html ?>
 
 
-                        <tr>
-                            <td>TOP 2017</td>
-                            <td>150</td>
-                            <td>16</td>
-                            <td>None</td>
-                        </tr>
+
                     </table>
 
                     Training:
@@ -77,15 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Location</th>
                         </tr>
 
-                        <?php
-                        foreach($participants as $participant): ?>
-                            <?php echo "<tr>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>".$participant->role."</td>"; ?>
-                            <?php echo "</tr>"; ?>
-                        <?php endforeach; ?>
+                        <?php echo $participations_html ?>
                         
 
                         <tr>

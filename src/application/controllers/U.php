@@ -5,6 +5,8 @@ class U extends MY_Controller {
 
 	public function index($username)
 	{
+        $this->load->model('trainings_model');
+        $this->load->model('contests_model');
 
 		//LOAD JS/CSS FILES
         //
@@ -18,15 +20,50 @@ class U extends MY_Controller {
 		$this->data['footer'] = $this->load->view('base/footer', array(), true);
 		
 		$this->load->model('users_model');
-		$this->load->model('participants_model');
+
 		$this->load->model('contestants_model');
 		$user = $this->users_model->get_row_where(array(
 		    'username' => $username
         ));
-		$participants = $this->participants_model->get_where(array('user_id' => $user->id));
-		$contestants = $this->contestants_model->get_where(array('user_id' => $user->id));
 
-		//$rank = $this->db->select('', False);
+
+		//$participants = $this->participants_model->get_where(array('user_id' => $user->id));
+		$participations = $this->trainings_model->get_where(array(
+            'participants.user_id' => $user->id
+        ));
+
+        //$contestants = $this->contestants_model->get_where(array('user_id' => $user->id));
+        $competitions = $this->contests_model->get_where(array(
+            'contestants.user_id' => $user->id
+        ));
+
+
+        $competitions_html = '';
+        foreach ($competitions as $competition)
+        {
+            $competitions_html .= $this->load->view('u/partials/competition_item',array(
+                'title' => $competition->title,
+                'score' => $competition->score,
+                'rank' => 5,
+                'medal' => $competition->medal,
+
+            ),true);
+        }
+
+
+		$participations_html = '';
+		foreach ($participations as $participation)
+        {
+            $participations_html .= $this->load->view('u/partials/participation_item',array(
+                'title' => $participation->title,
+                'starts_at' => $participation->starts_at,
+                'location' => $participation->location,
+                'role' => $participation->role,
+
+            ),true);
+        }
+
+
 		
 		$data = array(
 			'firstname' => $user->firstname,
@@ -34,8 +71,8 @@ class U extends MY_Controller {
 			'franceioi' => $user->franceioi,
 			'codeforces' => $user->codeforces,
 			'photo_url' => $user->photo_url,
-			'participants' => $participants,
-			'constestants' => $contestants,
+			'participations_html' => $participations_html,
+			'competitions_html' => $competitions_html,
             'logged_in' => isset($this->user->id),
             'logged_in_user_id' => isset($this->user->id) ? $this->user->id : null,
             'user_id' => $user->id
