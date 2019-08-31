@@ -80,7 +80,7 @@ class Me extends User_Controller {
             //Take the photo url if given
 
             $config['upload_path']          = APPPATH . '../assets/uploads/profile_photos/';
-            $config['allowed_types']        = 'gif|jpg|png';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 2000;
             $config['max_width']            = 2000;
             $config['max_height']           = 2000;
@@ -102,7 +102,7 @@ class Me extends User_Controller {
             //Take the passport scan photo url if given
 
             $config['upload_path']          = APPPATH . '../assets/uploads/scan_photos/';
-            $config['allowed_types']        = 'gif|jpg|png';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 2000;
             $config['max_width']            = 2000;
             $config['max_height']           = 2000;

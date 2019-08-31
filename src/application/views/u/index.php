@@ -23,10 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			<div class="gap-40"></div>
 
+            <?php if($logged_in and $user_id == $logged_in_user_id) { ?>
+                <a class="" href="/me/edit_info">Edit My profile</a>
+            <?php } ?>
 			<div class="row">
 	    		<div class="col-md-12">
 
-                    <img src="/assets/img/users/<?php echo $photo ?>" width="15%" alt="User Pic" />
+                    <img src="<?php echo $photo_url ?>" width="15%" alt="User Pic" />
                     <h1><?php echo $firstname." ".$lastname ?></h1>
 
                     <p>

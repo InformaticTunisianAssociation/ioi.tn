@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand navbar-bg">
-                    <a href="index.html">
+                    <a href="/">
                         <img class="img-responsive" src="/assets/images/logo.png" alt="logo">
                     </a>
                 </div>
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <?php if($logged_in) { ?>
                         <li class="dropdown">
-                            <a href="/me/edit_info"><?php echo $username ?><i class="fa fa-angle-down"></i></a>
+                            <a href="/u/<?php echo $username ?>"><?php echo $username ?><i class="fa fa-angle-down"></i></a>
                         </li>
                     <?php } else { ?>
                         <li class="dropdown">
