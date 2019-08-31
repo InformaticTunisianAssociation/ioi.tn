@@ -70,8 +70,8 @@ class Auth extends MY_Controller {
         //LOAD JS/CSS FILES
         //$this->load->view('signup/index');
 
-        $this->data['header'] = null;
-        $this->data['footer'] = null;
+	    $this->data['header'] = $this->load->view('base/header', array(), true);
+	    $this->data['footer'] = $this->load->view('base/footer', array(), true);
         $this->data['content'] = $this->load->view('auth/register',array(
             //'site_name' => $this->settings_model->get('site_name')
         ),true);
