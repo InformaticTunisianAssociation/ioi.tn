@@ -61,8 +61,8 @@ class Auth extends MY_Controller {
 
         //LOAD JS/CSS FILES
         //
-        //$this->load_css('/assets/study/css/auth/register.css');
-        //$this->load_js('/assets/study/js/auth/register.js');
+        $this->load_css('/assets/ioi/css/auth/register.css');
+        $this->load_js('/assets/ioi/js/auth/register.js');
         //
         //LOAD JS/CSS FILES
         //$this->load->view('signup/index');
@@ -70,7 +70,7 @@ class Auth extends MY_Controller {
         $this->data['header'] = null;
         $this->data['footer'] = null;
         $this->data['content'] = $this->load->view('auth/register',array(
-            'site_name' => $this->settings_model->get('site_name')
+            //'site_name' => $this->settings_model->get('site_name')
         ),true);
         $this->load->view('base/index',$this->data);
     }
@@ -130,6 +130,7 @@ class Auth extends MY_Controller {
         }
         redirect(base_url());
     }
+    
 
     public function do_register()
     {
@@ -139,8 +140,11 @@ class Auth extends MY_Controller {
         $username = $this->input->post('username',true);
         $email = $this->input->post('email',true);
         $password = $this->input->post('password',true);
-        $password_confirmation = $this->input->post('password_confirmation',true);
+        //$password_confirmation = $this->input->post('password_confirmation',true);
         $phone = $this->input->post('phone',true);
+        $date_birth = $this->input->post('date_birth',true);
+
+
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('firstname', 'First name', 'required');
@@ -148,18 +152,20 @@ class Auth extends MY_Controller {
         $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric|is_unique[users.username]');
         $this->form_validation->set_rules('email', 'Email address', 'required|valid_email|is_unique[users.email]');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
+        //$this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
         $this->form_validation->set_rules('phone', 'Phone number', 'required');
+        $this->form_validation->set_rules('date_birth', 'Date of birth', 'required'); // Todo: Adds a regular expression
+
+
 
         if($this->form_validation->run() == false)
         {
+
             echo json_encode(array(
-                'retulst' => 'failure',
                 'error' => validation_errors()
             ));
             return false;
         }
-
 
 
 
@@ -169,13 +175,13 @@ class Auth extends MY_Controller {
             'username' => $username,
             'email' => $email,
             'password_hash' => password_hash($password, PASSWORD_DEFAULT),
-            'phone' => $phone
+            'phone' => $phone,
+            'date_birth' => $date_birth
         ));
         if(!$user_id)
         {
             echo json_encode(array(
-                'retulst' => 'failure',
-                'error' => 'Error, verify your input and that user!'
+                'error' => 'Error, User could not be added!'
             ));
             return false;
         }
@@ -185,7 +191,6 @@ class Auth extends MY_Controller {
         //user does exist so we log him in, we store his info in the session
         $_SESSION['user'] = $user;
         echo json_encode(array(
-            'result' => 'success', //Could be success or failure
             'error' => null, // Will only be used on failure
             'redirect_link' => base_url() //will only be used on success
         ));
