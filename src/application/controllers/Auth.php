@@ -72,9 +72,7 @@ class Auth extends MY_Controller {
 
         $this->data['header'] = null;
         $this->data['footer'] = null;
-        $this->data['content'] = $this->load->view('auth/register',array(
-            'site_name' => $this->settings_model->get('site_name')
-        ),true);
+        $this->data['content'] = $this->load->view('auth/register',array(),true);
         $this->load->view('base/index',$this->data);
     }
 
@@ -112,7 +110,7 @@ class Auth extends MY_Controller {
         }
         else
         {
-            redirect('/');
+            redirect('/login');
         }
 
     }
