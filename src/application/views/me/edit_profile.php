@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>First Name</label>
-									<input class="form-control disabled" name="firstname" id="firstname" 
+									<input class="form-control disabled" name="firstname" id="firstname"
 									placeholder="First Name" type="text" value="<?php echo $firstname ?>" disabled>
 								</div>
 							</div>
@@ -126,6 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
+                                    <?php echo $passport_scan_photo ?>
 									<label>Passport Photo</label>
 									<input name="passport_photo" id="passport_photo" 
 									placeholder="Passport Photo" type="file">

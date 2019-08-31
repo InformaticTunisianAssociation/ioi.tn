@@ -52,8 +52,8 @@ class Me extends User_Controller {
             $user_confirm_password	=  $this->input->post('confirm_password',true);
 
             $params = array(
-                'firstname' => $firstname,
-                'lastname' => $lastname,
+                //'firstname' => $firstname,
+                //'lastname' => $lastname,
                 'date_birth' => $date_birth,
                 'franceioi' => $franceioi,
                 'codeforces' => $codeforces,
@@ -69,8 +69,8 @@ class Me extends User_Controller {
             $this->load->library('form_validation');
             $this->form_validation->set_data($params);
 
-            $this->form_validation->set_rules('firstname', 'First name', 'required');
-            $this->form_validation->set_rules('lastname', 'Last name', 'required');
+            //$this->form_validation->set_rules('firstname', 'First name', 'required');
+            //$this->form_validation->set_rules('lastname', 'Last name', 'required');
             $this->form_validation->set_rules('date_birth', 'Date of birth', 'required');
             $this->form_validation->set_rules('franceioi', 'France IOI', '');
             $this->form_validation->set_rules('codeforces', 'CodeForces', '');
