@@ -126,7 +126,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-                                    <?php echo $passport_scan_photo ?>
+                                    <p>
+                                        <a href="<?php echo $passport_scan_photo ?>" target="_blank">Show My Passport</a>
+                                    </p>
 									<label>Passport Photo</label>
 									<input name="passport_photo" id="passport_photo" 
 									placeholder="Passport Photo" type="file">

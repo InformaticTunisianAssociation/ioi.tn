@@ -6,7 +6,6 @@ class Home extends MY_Controller {
 	public function index()
 	{
 
-
 	    $slider_section = $this->load->view('home/partials/slider_section',array(),true);
 	    $service_box = $this->load->view('home/partials/service_box',array(),true);
 		$portfolio_section = $this->load->view('home/partials/portfolio_section',array(),true);

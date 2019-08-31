@@ -115,7 +115,6 @@ class Me extends User_Controller {
             {
                 $data = $this->upload->data();
                 $params['photo_url'] = '/assets/uploads/profile_photos/' . $data['file_name'];
-
             }
 
 
@@ -139,6 +138,7 @@ class Me extends User_Controller {
                 $params['passport_scan_url'] = '/assets/uploads/scan_photos/' . $data['file_name'];
 
             }
+
 
 
             //Take the passport scan photo url if given | END
