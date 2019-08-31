@@ -18,6 +18,7 @@ class Contest extends MY_Controller {
                 'nb_problems' => $contest->nb_problems,
                 'optimal_score' => $contest->optimal_score,
                 'contest_url' => $contest->contest_url,
+                'contest_id' => $contest->id
             ),true);
         }
         $this->data['content'] = $this->load->view('contest/index',array(

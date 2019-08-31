@@ -8,10 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Trainings</h2>
+		        	<h2>Contests</h2>
 		        	<ul class="breadcrumb">
 			            <li>Home</li>
-			            <li><a href="#"> Training</a></li>
+			            <li><a href="#"> Contests</a></li>
 		          	</ul>
 	          	</div>
           	</div><!-- Subpage title end -->

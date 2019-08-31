@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <tr>
-    <th scope="row"><a href="<?php echo $contest_url ?>"><?php echo $title ?></a></th>
+    <th scope="row"><a href="/training/show/<?php echo $contest_id ?>"><?php echo $title ?></a></a></th>
     <td><?php echo $starts_at ?></td>
     <td><?php echo $duration  ?></td>
     <td><?php echo $nb_problems  ?></td>

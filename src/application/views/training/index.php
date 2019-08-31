@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		        	<h2>Trainings</h2>
 		        	<ul class="breadcrumb">
 			            <li>Home</li>
-			            <li><a href="#"> Training</a></li>
+			            <li><a href="#"> Trainings</a></li>
 		          	</ul>
 	          	</div>
           	</div><!-- Subpage title end -->
