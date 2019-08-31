@@ -130,7 +130,7 @@ class Auth extends MY_Controller {
         }
         redirect(base_url());
     }
-    
+
 
     public function do_register()
     {
