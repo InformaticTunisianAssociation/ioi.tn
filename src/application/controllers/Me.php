@@ -108,7 +108,8 @@ class Me extends User_Controller {
             $config['max_height']           = 2000;
             $config['file_name']            = $this->get_random_user_profile_photo_name($this->user->username);
 
-            $this->load->library('upload', $config);
+            $this->load->library('upload');
+            $this->upload->initialize($config);
 
             if ($this->upload->do_upload('profile_photo'))
             {
@@ -119,6 +120,28 @@ class Me extends User_Controller {
 
 
             //Take the photo url if given | END
+
+
+            //Take the passport scan photo url if given
+
+            $config['upload_path']          = APPPATH . '../assets/uploads/scan_photos/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 2000;
+            $config['max_width']            = 2000;
+            $config['max_height']           = 2000;
+            $config['file_name']            = $this->get_random_scan_photo_name($this->user->username);
+
+            $this->upload->initialize($config);
+
+            if ($this->upload->do_upload('passport_photo'))
+            {
+                $data = $this->upload->data();
+                $params['passport_scan_url'] = '/assets/uploads/scan_photos/' . $data['file_name'];
+
+            }
+
+
+            //Take the passport scan photo url if given | END
 
 
             //Add the id of the current user to the array (This is critical or we will update all users data!)
@@ -138,7 +161,8 @@ class Me extends User_Controller {
             'phone' => $this->user->phone,
             'codeforces' => $this->user->codeforces,
             'franceioi' => $this->user->franceioi,
-            'profile_photo' => $this->user->photo_url
+            'profile_photo' => $this->user->photo_url,
+            'passport_scan_photo' => $this->user->passport_scan_url
 
         ),true);
         $this->load->view('base/index',$this->data);
@@ -152,6 +176,19 @@ class Me extends User_Controller {
         {
             $file_name =  $username . "_" . sha1(microtime()) . '.jpg';
         }while(file_exists(APPPATH .  '../assets/uploads/profile_photos/'.$file_name));
+        //echo $file_name;
+        return  $file_name;
+
+    }
+
+    private function get_random_scan_photo_name($username)
+    {
+        //This function generates a random name for the user images
+        $file_name = null;
+        do
+        {
+            $file_name =  $username . "_" . sha1(microtime()) . '.jpg';
+        }while(file_exists(APPPATH .  '../assets/uploads/scan_photos/'.$file_name));
         //echo $file_name;
         return  $file_name;
 

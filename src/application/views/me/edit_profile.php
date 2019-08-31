@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input name="codeforces" placeholder="Code forces account" value="<?php echo $codeforces ?>">
             <input name="franceioi" placeholder="France IOI" value="<?php echo $franceioi ?>">
             <input name="profile_photo" type="file" >
+            <input name="passport_photo" type="file" >
             Old Password:<input name="old_password" placeholder=""><br>
             New Password:<input name="password" placeholder=""><br>
             Confirm password:<input name="confirm_password" placeholder="">
