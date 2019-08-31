@@ -8,10 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Subpage title start -->
     <div class="banner-title-content">
         <div class="text-center">
-            <h2>Training</h2>
+            <h2><?php echo $title ?></h2>
             <ul class="breadcrumb">
                 <li>Home</li>
-                <li><a href="#"> Training</a></li>
+                <li><a href="#"> Contest </a></li>
             </ul>
         </div>
     </div><!-- Subpage title end -->
@@ -37,16 +37,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </h2>
                     </div><!-- post heading end -->
                     <div class="entry-content">
-                        <p><?php echo $description ?></p>
-                        <?php echo $ends_at  ?>
-                        <?php echo $level  ?>
-                        <?php echo $location ?>
-                        <?php echo $location_url ?>
-                        <?php echo $topic ?>
+                        <p><?php echo $title ?></p>
+                        <?php echo $starts_at  ?>
+                        <?php echo $duration  ?>
+                        <?php echo $nb_problems ?>
+                        <?php echo $optimal_score ?>
+                        <?php echo $contest_url ?>
                         <?php if($is_enrolled) { ?>
                             <p class="apply"><a  class="btn btn-success disabled solid">Applied</a></p>
                         <?php } else { ?>
-                            <p class="apply"><a href="/training/apply/<?php echo $id ?>" class="btn btn-primary solid">Apply Now <i class="fa fa-long-arrow-right"></i></a></p>
+                            <p class="apply"><a href="/contest/apply/<?php echo $id ?>" class="btn btn-primary solid">Apply Now <i class="fa fa-long-arrow-right"></i></a></p>
                         <?php } ?>
                     </div>
 

@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Training extends User_Controller {
+class Training extends MY_Controller {
 
 	public function index()
 	{
         //We will load all the trainings
-        $this->load->model('training_model');
-        $trainings = $this->training_model->get_all();
+        $this->load->model('trainings_model');
+        $trainings = $this->trainings_model->get_all();
         $trainings_html = '';
         foreach ($trainings as $training)
         {
@@ -44,13 +44,17 @@ class Training extends User_Controller {
 
         //Extract training from the database
 
-        $this->load->model('training_model');
-        $training = $this->training_model->get($training_id);
+        $this->load->model('trainings_model');
+        $training = $this->trainings_model->get($training_id);
         if(!$training)
             show_404();
 
+        $is_enrolled = false;
+        if(isset($this->user->id))
+            $is_enrolled = $this->trainings_model->is_enrolled($this->user->id,$training_id);
 
         $this->data['content'] = $this->load->view('training/show',array(
+            'id' => $training->id,
             'title' => $training->title,
             'starts_at' => $training->starts_at,
             'ends_at' => $training->ends_at,
@@ -59,13 +63,33 @@ class Training extends User_Controller {
             'location' => $training->location,
             'location_url' => $training->location_url,
             'topic' => $training->topic,
+            'is_enrolled' => $is_enrolled
         ),true);
         $this->load->view('base/index',$this->data);
     }
 
-    public function apply()
+    public function apply($training_id = null)
     {
 
+        //User must be logged in to access this page
+        if(!isset($this->user->id))
+            redirect('/login');
+
+        if(!$training_id)
+            show_404();
+        $this->load->model('trainings_model');
+
+        $training = $this->trainings_model->get($training_id);
+        if(!$training)
+            show_404();
+        //Make sure that the user is not already applied
+
+
+        if($this->trainings_model->is_enrolled($this->user->id,$training->id))
+            redirect("training/show/{$training_id}");
+
+        $this->trainings_model->enroll($this->user->id,$training->id);
+        redirect("training/show/{$training_id}");
     }
 
 

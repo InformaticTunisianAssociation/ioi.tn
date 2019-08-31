@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Class MY_Controller
  * @property users_model $users_model
  * @property settings_model $settings_model
+ * @property trainings_model $trainings_model
+ * @property contests_model $contests_model
  */
 class MY_Controller extends CI_Controller
 {
