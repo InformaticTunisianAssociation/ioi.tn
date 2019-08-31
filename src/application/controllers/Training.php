@@ -20,6 +20,7 @@ class Training extends MY_Controller {
                 'location' => $training->location,
                 'location_url' => $training->location_url,
                 'topic' => $training->topic,
+                'training_id' => $training->id
             ),true);
         }
         $this->data['content'] = $this->load->view('training/index',array(
