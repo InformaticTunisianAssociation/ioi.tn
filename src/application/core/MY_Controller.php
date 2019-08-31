@@ -34,7 +34,8 @@ class MY_Controller extends CI_Controller
 
         //Load header and footer
         $this->data['header'] = $this->load->view('base/header',array(
-            'username' => isset($this->user->id) ? $this->user->username : null
+            'username' => isset($this->user->id) ? $this->user->username : null,
+            'logged_in' => isset($this->user->id)
         ),true);
         $this->data['footer'] = $this->load->view('base/footer',array(
             'phone' => $this->settings_model->get('phone'),
