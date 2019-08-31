@@ -6,6 +6,7 @@ class Home extends MY_Controller {
 	public function index()
 	{
 
+
 	    $slider_section = $this->load->view('home/partials/slider_section',array(),true);
 	    $service_box = $this->load->view('home/partials/service_box',array(),true);
 		$portfolio_section = $this->load->view('home/partials/portfolio_section',array(),true);
@@ -27,7 +28,7 @@ class Home extends MY_Controller {
 			'team_section' => $team_section,
 			'parallax_section' => $parallax_section,
 			'testimonial_section' => $testimonial_section,
-			'clients_section' => $clients_section
+			'clients_section' => $clients_section,
 		
         ),true);
 	    $this->load->view('base/index',$this->data);

@@ -26,11 +26,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?/$1 [L]
 
-    #When this is hosted at beta.study.tn change this to testing,
-    #when this is hosted at study.tn change this to production
-    #when this is hosted locally change this to development
     SetEnv CI_ENV development
-    SetEnv STUDY_DB_PW root
 </IfModule>
 
 <IfModule !mod_rewrite.c>
