@@ -39,9 +39,12 @@ class Auth extends MY_Controller {
         //
         //LOAD JS/CSS FILES
 
+        if(isset($this->user->id)) {
+            redirect(base_url());
+        }
 
-	    $this->data['header'] = null;
-	    $this->data['footer'] = null;
+	    $this->data['header'] = $this->load->view('base/header', array(), true);
+	    $this->data['footer'] = $this->load->view('base/footer', array(), true);
 	    $this->data['content'] = $this->load->view('auth/login',array(
 
         ),true);
@@ -109,7 +112,7 @@ class Auth extends MY_Controller {
         }
         else
         {
-            redirect('/login');
+            redirect('/');
         }
 
     }
