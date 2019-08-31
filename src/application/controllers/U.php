@@ -5,6 +5,10 @@ class U extends MY_Controller {
 
 	public function index($username)
 	{
+	    $this->set_toast(array(
+	        'message' => 'Yay',
+            'type' => 'warning'
+        ));
         $this->load->model('trainings_model');
         $this->load->model('contests_model');
 

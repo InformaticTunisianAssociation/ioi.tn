@@ -255,6 +255,7 @@ class MY_Controller extends CI_Controller
             '/assets/css/flexslider.css',
             '/assets/css/cd-hero.css',
             '/assets/css/presets/preset3.css',
+            '/assets/vendor/Toast.js-master/dist/css/Toast.min.css'
 
         );
         foreach ($urls as $url)
@@ -278,6 +279,7 @@ class MY_Controller extends CI_Controller
             '/assets/js/jquery.counterup.min.js',
             '/assets/js/waypoints.min.js',
             '/assets/js/custom.js',
+            '/assets/vendor/Toast.js-master/dist/js/Toast.min.js'
 
 
         );
