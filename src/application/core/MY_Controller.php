@@ -36,7 +36,13 @@ class MY_Controller extends CI_Controller
         $this->data['header'] = $this->load->view('base/header',array(
             'username' => isset($this->user->id) ? $this->user->username : null
         ),true);
-        $this->data['footer'] = $this->load->view('base/footer',array(),true);
+        $this->data['footer'] = $this->load->view('base/footer',array(
+            'phone' => $this->settings_model->get('phone'),
+            'email' => $this->settings_model->get('email'),
+            'address' => $this->settings_model->get('address'),
+            'about' => $this->settings_model->get('about'),
+            'facebook' => $this->settings_model->get('facebook'),
+        ),true);
 
 
 
