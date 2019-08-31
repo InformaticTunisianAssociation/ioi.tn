@@ -23,3 +23,9 @@ Images (id, title, image_url, link, category:enum[ioi, top, trainings, staff])
 
 # Login page:
 - Add a link to signup 
+
+# Manager
+- Allow managers to add new contests and trainings
+- Allow managers to edit users info (and download their passport photo)
+- Allow managers to export contestants for a given contest (All of their information) and scores.
+- Allow managers to update contestanat scores.
