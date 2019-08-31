@@ -18,7 +18,7 @@ Images (id, title, image_url, link, category:enum[ioi, top, trainings, staff])
 
 # Toast/Modals (Error and success messages)
 
-
+# U page, in public profile, redesign the edit my profile button
 
 
 # Login page:
