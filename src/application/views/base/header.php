@@ -22,25 +22,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <nav class="collapse navbar-collapse clearfix" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
+                        <a href="/" >Home <i class="fa fa-angle-down"></i></a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainings <i class="fa fa-angle-down"></i></a>
+                        <a href="/training" class="" >Trainings <i class="fa fa-angle-down"></i></a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contests <i class="fa fa-angle-down"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="/register" class="dropdown-toggle" data-toggle="dropdown">Join Us <i class="fa fa-angle-down"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $username ?> <i class="fa fa-angle-down"></i></a>
+                        <a href="/contest">Contests <i class="fa fa-angle-down"></i></a>
                     </li>
 
+                    <?php if($logged_in) { ?>
+                        <li class="dropdown">
+                            <a href="/me/edit_info"><?php echo $username ?><i class="fa fa-angle-down"></i></a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="dropdown">
+                            <a href="/register">Register<i class="fa fa-angle-down"></i></a>
+                        </li>
+                    <?php } ?>
 
+                    <?php if($logged_in) { ?>
+                        <li><a href="/logout">Logout</a></li>
+                    <?php } else { ?>
+                        <li><a href="/login">Login</a></li>
 
-
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <?php } ?>
                 </ul>
             </nav><!--/ Navigation end -->
         </div><!--/ Row end -->
