@@ -37,7 +37,7 @@ class Training extends User_Controller {
 
         //LOAD JS/CSS FILES
         //
-        //$this->load_css('/assets/ioi/css/me/edit_profile.css');
+        $this->load_css('/assets/ioi/css/training/show.css');
         //$this->load_js('/assets/ioi/js/me/edit_profile.js');
         //
         //LOAD JS/CSS FILES
@@ -46,7 +46,7 @@ class Training extends User_Controller {
 
         $this->load->model('training_model');
         $training = $this->training_model->get($training_id);
-        if(!$training_id)
+        if(!$training)
             show_404();
 
 
