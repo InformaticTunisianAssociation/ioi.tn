@@ -23,10 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			<div class="gap-40"></div>
 
+            <?php if($logged_in and $user_id == $logged_in_user_id) { ?>
+                <a class="" href="/me/edit_info">Edit My profile</a>
+            <?php } ?>
 			<div class="row">
 	    		<div class="col-md-12">
 
-                    <img src="/assets/img/users/<?php echo $photo ?>" width="15%" alt="User Pic" />
+                    <img src="<?php echo $photo_url ?>" width="15%" alt="User Pic" />
                     <h1><?php echo $firstname." ".$lastname ?></h1>
 
                     <p>
@@ -46,23 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Medal</th>
                         </tr>
 
-                        <?php
-                        foreach($constestants as $contestant): ?>
-                            <?php echo "<tr>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>".$contestant->score."</td>"; ?>
-                                <?php echo "<td>"."</td>"; ?>
-                                <?php echo "<td>".$contestant->medal."</td>"; ?>
-                            <?php echo "</tr>"; ?>
-                        <?php endforeach; ?>
+                       <?php echo $competitions_html ?>
 
 
-                        <tr>
-                            <td>TOP 2017</td>
-                            <td>150</td>
-                            <td>16</td>
-                            <td>None</td>
-                        </tr>
+
                     </table>
 
                     Training:
@@ -74,15 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Location</th>
                         </tr>
 
-                        <?php
-                        foreach($participants as $participant): ?>
-                            <?php echo "<tr>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>"."Name"."</td>"; ?>
-                                <?php echo "<td>".$participant->role."</td>"; ?>
-                            <?php echo "</tr>"; ?>
-                        <?php endforeach; ?>
+                        <?php echo $participations_html ?>
                         
 
                         <tr>

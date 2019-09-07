@@ -28,4 +28,12 @@ class Trainings_model extends MY_Model
             return false;
     }
 
+    public function get_where($params, $table = null)
+    {
+        $this->db->select('participants.*, trainings.title, trainings.starts_at, trainings.location');
+        $this->db->join('trainings','trainings.id = participants.training_id','inner');
+        $this->db->where($params);
+        return $this->db->get('participants')->result();
+    }
+
 }
