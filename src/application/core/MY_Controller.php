@@ -325,6 +325,9 @@ class Manager_Controller extends User_Controller
     function __construct()
     {
         parent::__construct();
+        $this->init_js_files();
+        $this->init_css_files();
+        
         if($this->user->role != 'admin' and $this->user->role != 'manager')
         {
             $this->error("You are not instructor, you cannot access this page!",array(
@@ -332,11 +335,39 @@ class Manager_Controller extends User_Controller
                 'ajax' => $this->is_ajax
             ));
         }
-        $this->data['header'] = null;
-        /*$this->data['footer'] = $this->load->view('instructor/footer',array(
-            'site_name' => $this->settings_model->get('site_name'),
+        $this->data['header'] = $this->load->view('base/manager/header',array(),true);
+        $this->data['footer'] = $this->load->view('base/manager/footer',array(
+            //'site_name' => $this->settings_model->get('site_name'),
 
-        ),true);*/
+        ),true);
+    }
+
+    private function init_js_files()
+    {
+        $this->data['js'] = array();
+        $urls = array(
+            '/assets/dashboard/vendor/jquery/jquery.min.js',
+            '/assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js',
+            '/assets/dashboard/vendor/jquery-easing/jquery.easing.min.js',
+            '/assets/dashboard/js/sb-admin-2.min.js',
+            '/assets/dashboard/vendor/chart.js/Chart.min.js',
+            '/assets/dashboard/js/demo/chart-area-demo.js',
+            '/assets/dashboard/js/demo/chart-pie-demo.js',
+        );
+        foreach ($urls as $url)
+            $this->load_js($url);
+    }
+
+    private function init_css_files()
+    {
+        $this->data['css'] = array();
+        $urls = array(
+            '/assets/dashboard/css/sb-admin-2.min.css',
+            '/assets/dashboard/vendor/fontawesome-free/css/all.min.css',
+            'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i',
+        );
+        foreach ($urls as $url)
+            $this->load_css($url);
     }
 }
 

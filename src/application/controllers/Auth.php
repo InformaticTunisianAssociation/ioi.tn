@@ -63,7 +63,7 @@ class Auth extends MY_Controller {
 
 
         //LOAD JS/CSS FILES
-        //
+        // 
         $this->load_css('/assets/ioi/css/auth/register.css');
         $this->load_js('/assets/ioi/js/auth/register.js');
         //

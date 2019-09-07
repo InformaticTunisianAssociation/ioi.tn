@@ -48,12 +48,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4"></div>
+							<div class="col-md-4"></div>
 							<div class="col-md-4">
+								<a href="/register">New here? Create an account</a>
                                 <div class="text-right"><br>
-                                    <button class="btn btn-primary solid blank" type="submit">Login</button> 
-                                </div>
-                            </div>
+									<button class="btn btn-primary solid blank" type="submit">Login</button> 
+								</div>
+							</div>
                         </div>
 					</form>
 	    		</div>

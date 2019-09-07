@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="facts one col-md-3 col-sm-6">
                 <span class="facts-icon"><i class="fa fa-user"></i></span>
                 <div class="facts-num">
-                    <span class="counter">7881</span>
+                    <span class="counter"><?php echo $students; ?></span>
                 </div>
                 <h3>Impacted student</h3>
             </div>
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="facts two col-md-3 col-sm-6">
                 <span class="facts-icon"><i class="fa fa-institution"></i></span>
                 <div class="facts-num">
-                    <span class="counter">9</span>
+                    <span class="counter"><?php echo $participations; ?></span>
                 </div>
                 <h3>IOI participations</h3>
             </div>
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="facts three col-md-3 col-sm-6">
                 <span class="facts-icon"><i class="fa fa-suitcase"></i></span>
                 <div class="facts-num">
-                    <span class="counter">869</span>
+                    <span class="counter"><?php echo $projects; ?></span>
                 </div>
                 <h3>Projects</h3>
             </div>
@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="facts four col-md-3 col-sm-6">
                 <span class="facts-icon"><i class="fa fa-trophy"></i></span>
                 <div class="facts-num">
-                    <span class="counter">2</span>
+                    <span class="counter"><?php echo $medals; ?></span>
                 </div>
                 <h3>Medals</h3>
             </div>

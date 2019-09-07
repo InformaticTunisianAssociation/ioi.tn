@@ -89,6 +89,17 @@ class Contest extends MY_Controller {
         redirect("contest/show/{$contest_id}");
     }
 
+    public function add() {
+
+        $this->load_css('/assets/ioi/css/contest/show.css');
+
+        $this->load->model('contests_model');
+
+
+        $this->data['content'] = $this->load->view('contest/add',array(),true);
+        $this->load->view('base/index',$this->data);
+
+    }
 
 
 }

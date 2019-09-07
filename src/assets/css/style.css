@@ -3366,3 +3366,15 @@ a.close-styler{
 .style-switch-wrapper #preset6 {
 	background-color: #8C42BA;
 }
+
+.partn {
+	margin-bottom: 5%;
+}
+
+.team-member {
+	margin-bottom: 2%;
+}
+
+.img-responsive {
+	max-height: 100%;
+}

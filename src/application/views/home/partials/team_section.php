@@ -14,16 +14,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!-- Title row end -->
 
         <div class="row text-center">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-4 col-sm-6 team-member">
                 <div class="team wow slideInLeft">
                     <div class="img-hexagon">
-                        <img src="/assets/images/team/team1.jpg" alt="">
+                        <img src="/assets/images/team/dorsaf.jpg" alt="">
                         <span class="img-top"></span>
                         <span class="img-bottom"></span>
                     </div>
                     <div class="team-content">
-                        <h3>Vosgi Varduhi</h3>
-                        <p>Web Designer</p>
+                        <h3>Mrs Dorsaf Benna Chelly</h3>
+                        <p>President of ITA</p>
                         <div class="team-social">
                             <a class="fb" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="twt" href="#"><i class="fa fa-twitter"></i></a>
@@ -34,16 +34,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div><!--/ Team 1 end -->
-            <div class="col-md-3 col-sm-6">
+            <div class="col-4 col-sm-6 team-member">
                 <div class="team wow slideInLeft">
                     <div class="img-hexagon">
-                        <img src="/assets/images/team/team2.jpg" alt="">
+                        <img src="/assets/images/team/nidhal.jpg" alt="">
                         <span class="img-top"></span>
                         <span class="img-bottom"></span>
                     </div>
                     <div class="team-content">
-                        <h3>Robert Aleska</h3>
-                        <p>Web Designer</p>
+                        <h3>Mr Nidhal Abidi</h3>
+                        <p>Executive director of ITA</p>
                         <div class="team-social">
                             <a class="fb" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="twt" href="#"><i class="fa fa-twitter"></i></a>
@@ -54,16 +54,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div><!--/ Team 2 end -->
-            <div class="col-md-3 col-sm-6">
+            <div class="col-4 col-sm-6 team-member">
                 <div class="team wow slideInRight">
                     <div class="img-hexagon">
-                        <img src="/assets/images/team/team3.jpg" alt="">
+                        <img src="/assets/images/team/ahmed.jpg" alt="">
                         <span class="img-top"></span>
                         <span class="img-bottom"></span>
                     </div>
                     <div class="team-content">
-                        <h3>Taline Voski</h3>
-                        <p>Web Designer</p>
+                        <h3>Ahmed Fessi</h3>
+                        <p>Tunisia National team coach</p>
                         <div class="team-social">
                             <a class="fb" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="twt" href="#"><i class="fa fa-twitter"></i></a>
@@ -74,16 +74,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div><!--/ Team 3 end -->
-            <div class="col-md-3 col-sm-6">
+            <div class="col-4 col-sm-6 team-member">
                 <div class="team animate wow slideInRight">
                     <div class="img-hexagon">
-                        <img src="/assets/images/team/team4.jpg" alt="">
+                        <img src="/assets/images/team/adem.jpg" alt="">
                         <span class="img-top"></span>
                         <span class="img-bottom"></span>
                     </div>
                     <div class="team-content">
-                        <h3>Alban Spencer</h3>
-                        <p>Web Designer</p>
+                        <h3>Adem Khachnaoui</h3>
+                        <p>Coach</p>
                         <div class="team-social">
                             <a class="fb" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="twt" href="#"><i class="fa fa-twitter"></i></a>
@@ -94,6 +94,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div><!--/ Team 4 end -->
-        </div><!--/ Content row end -->
+            <div class="col-4 col-sm-6 team-member">
+                <div class="team animate wow slideInRight">
+                    <div class="img-hexagon">
+                        <img src="/assets/images/team/hichem.jpg" alt="">
+                        <span class="img-top"></span>
+                        <span class="img-bottom"></span>
+                    </div>
+                    <div class="team-content">
+                        <h3>Hichem Razgallah</h3>
+                        <p>Coach</p>
+                        <div class="team-social">
+                            <a class="fb" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="twt" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                            <a class="linkdin" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="dribble" href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/ Team 5 end -->
     </div><!--/ Container end -->
 </section><!--/ Team end -->
