@@ -65,15 +65,15 @@ class Contest_management extends Manager_Controller {
 
                 $contest = $this->contests_model->insert($r);
                 assert($contest);
+                redirect('/contest_management');
         
             }
 
 
         }
-        $content = $this->load->view('contest_management/add',array(),true);
-        $this->data['content'] = $this->load->view('base/manager/index',array(
-            'content' => $content,
-        ), true);
+        $this->data['content'] = $this->load->view('contest_management/add',array(
+
+        ),true);
         $this->load->view('base/index',$this->data);
 
     }

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!-- Title row end -->
 
         <div class="row text-center">
-            <div class="col-4 col-sm-6 team-member">
+            <div class="col-4 col-sm-6 col-md-4 team-member">
                 <div class="team wow slideInLeft">
                     <div class="img-hexagon">
                         <img src="/assets/images/team/dorsaf.jpg" alt="">
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div><!--/ Team 1 end -->
-            <div class="col-4 col-sm-6 team-member">
+            <div class="col-4 col-sm-6 col-md-4 team-member">
                 <div class="team wow slideInLeft">
                     <div class="img-hexagon">
                         <img src="/assets/images/team/nidhal.jpg" alt="">
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div><!--/ Team 2 end -->
-            <div class="col-4 col-sm-6 team-member">
+            <div class="col-4 col-sm-6 col-md-4 team-member">
                 <div class="team wow slideInRight">
                     <div class="img-hexagon">
                         <img src="/assets/images/team/ahmed.jpg" alt="">

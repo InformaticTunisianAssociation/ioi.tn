@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://ioi.local/';
+//$config['base_url'] = 'https://www.ioi.tn/';
 
 /*
 |--------------------------------------------------------------------------
