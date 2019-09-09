@@ -8,11 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     echo $service_box;
     echo $portfolio_section;
     echo $counter_section;
-    echo $feature_box;
-    echo $image_block;
+    //echo $feature_box;
+    //echo $image_block;
     echo $team_section;
     echo $parallax_section;
-    echo $testimonial_section;
+    //echo $testimonial_section;
     echo $clients_section;
 ?>
 

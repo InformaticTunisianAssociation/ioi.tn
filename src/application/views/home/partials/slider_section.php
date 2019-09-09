@@ -10,10 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <img class="" src="/assets/images/slider/bg1.jpg" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <h2>Need To Invent The Future!</h2>
-                    <h3>We Making Difference To Great Things Possible</h3>
-                    <a href="#0" class="btn btn-primary white cd-btn">Start Now</a>
-                    <a href="#0" class="btn btn-primary solid cd-btn">Learn More</a>
+                    <h2>IOI 2020 Singapore</h2>
+                    <h3>Your path to the 32nd International Olympiad in informatics</h3>
+                    <a href="/contest" class="btn btn-primary white cd-btn">See the contests</a>
+                    <a href="/register" class="btn btn-primary solid cd-btn">Create an account</a>
                 </div> <!-- .cd-full-width -->
             </li>
             <li>
