@@ -12,8 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h2>Are You Ready to join the journey!</h2>
                 <h3>Create an account and join the contest</h3>
                 <p>
-                    <a href="#" class="btn btn-primary white">Login to your account</a>
-                    <a href="#" class="btn btn-primary solid">Create a new account</a>
+                    <a href="/login" class="btn btn-primary white">Login to your account</a>
+                    <a href="/register" class="btn btn-primary solid">Create a new account</a>
                 </p>
             </div>
         </div>
