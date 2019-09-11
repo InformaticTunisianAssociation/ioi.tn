@@ -11,6 +11,8 @@ class Contest extends MY_Controller {
         $contests_html = '';
         foreach ($contests as $contest)
         {
+            if(!$contest->visible)
+                continue;
             $contests_html .= $this->load->view('contest/partials/contest_item',array(
                 'title' => $contest->title,
                 'starts_at' => $contest->starts_at,
