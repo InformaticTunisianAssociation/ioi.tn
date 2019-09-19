@@ -20,7 +20,7 @@ class Contest extends MY_Controller {
                 'nb_problems' => $contest->nb_problems,
                 'optimal_score' => $contest->optimal_score,
                 'contest_url' => $contest->contest_url,
-                'contest_id' => $contest->id
+                'contest_id' => $contest->id,
             ),true);
         }
         $this->data['content'] = $this->load->view('contest/index',array(
@@ -62,7 +62,8 @@ class Contest extends MY_Controller {
             'nb_problems' => $contest->nb_problems,
             'optimal_score' => $contest->optimal_score,
             'contest_url' => $contest->contest_url,
-            'is_enrolled' => $is_enrolled
+            'is_enrolled' => $is_enrolled,
+            'photo_url' => $contest->photo_url
         ),true);
         $this->load->view('base/index',$this->data);
     }

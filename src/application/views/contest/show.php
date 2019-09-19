@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="post-content">
                     <!-- post image start -->
                     <div class="post-image-wrapper">
-                        <img src="/assets/images/blog/blog1.jpg" class="img-responsive"  alt="" />
+                        <img src="<?php echo $photo_url ?>" class="img-responsive"  alt="" />
                         <span class="blog-date"><a href="#"><?php echo $starts_at ?></a></span>
                     </div><!-- post image end -->
                     <div class="post-header clearfix">

@@ -11,6 +11,8 @@ class Training extends MY_Controller {
         $trainings_html = '';
         foreach ($trainings as $training)
         {
+            if(!$training->visible)
+                continue;
             $trainings_html .= $this->load->view('training/partials/training_item',array(
                 'title' => $training->title,
                 'starts_at' => $training->starts_at,
