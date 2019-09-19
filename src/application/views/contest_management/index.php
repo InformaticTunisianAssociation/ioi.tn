@@ -29,6 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th scope="col">Duration</th>
                         <th scope="col">Nb Problems</th>
                         <th scope="col">Optimal Score</th>
+                        <th scope="col">Visible</th>
                         <th></th>
                         <th></th>
                         </tr>
@@ -37,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php echo $contests_html; ?>
                     </tbody>
                 </table>
-                <a class="btn btn-primary" href="add" role="button">Add</a>
+                <a class="btn btn-primary" href="/contest_management/add" role="button">Add</a>
                 </div>
             </div>
         </div>

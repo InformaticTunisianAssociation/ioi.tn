@@ -16,7 +16,7 @@
 		<div class="container">
 			
 			<div class="gap-40"></div>
-			<form method='post' action='/scores/add'>
+			<form method='post' action='/scores/update'>
 			<div class="row">
 	    		<div class="col-md-12">
                     <div id="register-error"></div>
@@ -27,7 +27,7 @@
 								<div class="form-group">
 									<label>Contest ID</label>
 								<input class="form-control" name="contest_id" id="contest_id"
-                                placeholder="Title" type="text" required>
+                                placeholder="Eg: 8" type="text" required>
 								</div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
 								<div class="form-group">
 									<label>User ID</label>
 								<input class="form-control" name="user_id" id="user_id"
-                                placeholder="Title" type="text" required>
+                                placeholder="Eg: 5" type="text" required>
 								</div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
 								<div class="form-group">
 									<label>Score</label>
 								<input class="form-control" name="score" id="score"
-                                placeholder="Title" type="text" required>
+                                placeholder="Eg: 109" type="text" required>
 								</div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Medal</label>
-									<select name="medal">
+									<select name="medal" class="form-control">
 										<option value="gold">gold</option>
 										<option value="silver">silver</option>
 										<option value="bronze">bronze</option>
@@ -71,7 +71,7 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
                                 <div class="text-right"><br>
-                                    <button id="btn-register" class="btn btn-primary solid blank" type="submit">Add</button> 
+                                    <button id="btn-register" class="btn btn-primary solid blank" type="submit">Update</button>
                                 </div>
                             </div>
                         </div>

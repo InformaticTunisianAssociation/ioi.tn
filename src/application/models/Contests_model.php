@@ -36,4 +36,10 @@ class Contests_model extends MY_Model
         return $this->db->get('contestants')->result();
     }
 
+    //This method will update the user score, medal ...
+    public function update_score(array $record)
+    {
+        return $this->update($record,'contestants');
+    }
+
 }

@@ -37,17 +37,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </h2>
                     </div><!-- post heading end -->
                     <div class="entry-content">
-                        <p><?php echo $title ?></p>
-                        <?php echo $starts_at  ?>
-                        <?php echo $duration  ?>
-                        <?php echo $nb_problems ?>
-                        <?php echo $optimal_score ?>
-                        <?php echo $contest_url ?>
-                        <?php if($is_enrolled) { ?>
-                            <p class="apply"><a  class="btn btn-success disabled solid">Applied</a></p>
-                        <?php } else { ?>
-                            <p class="apply"><a href="/contest/apply/<?php echo $id ?>" class="btn btn-primary solid">Apply Now <i class="fa fa-long-arrow-right"></i></a></p>
-                        <?php } ?>
+                        <p><?php // echo $title ?></p>
+                        <?php // echo $starts_at  ?>
+
+                        <table class="table">
+                            <thead>
+                            <th>Contest Duration</th>
+                            <th>Number of problems</th>
+                            <th>Optimal score</th>
+                            <th>Contest URL</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $duration  ?></td>
+                                <td><?php echo $nb_problems ?></td>
+                                <td><?php echo $optimal_score ?></td>
+                                <td><a href="<?php echo $contest_url ?>"><?php if($contest_url){ ?>Go to contest <?php } ?></a></td>
+
+                            </tr>
+                            </tbody>
+                            <?php if($is_enrolled) { ?>
+                                <p class="apply"><a  class="btn btn-success btn-sm disabled solid">Applied</a></p>
+                            <?php } else { ?>
+                                <p class="apply"><a href="/contest/apply/<?php echo $id ?>" class="btn btn-primary solid">Apply Now <i class="fa fa-long-arrow-right"></i></a></p>
+                            <?php } ?>
+
+                        </table>
+
+
+
                     </div>
 
                 </div><!-- Blog post end -->

@@ -18,7 +18,8 @@ class Contest_management extends Manager_Controller {
                 'nb_problems' => $contest->nb_problems,
                 'optimal_score' => $contest->optimal_score,
                 'contest_url' => $contest->contest_url,
-                'contest_id' => $contest->id
+                'contest_id' => $contest->id,
+                'visible' => $contest->visible
             ),true);
         }
         $this->data['content'] = $this->load->view('contest_management/index',array(
@@ -87,15 +88,23 @@ class Contest_management extends Manager_Controller {
             $optimal_score  = $this->input->post('optimal_score');
             $starts_at  = $this->input->post('starts_at');
             $contest_url  = $this->input->post('contest_url');
+            $visible  = $this->input->post('visible');
+
+
+            if($visible)
+                $visible = 1;
+            else
+                $visible = 0;
 
             $this->load->library('form_validation');
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('duration', 'Duration', 'required|numeric');
             $this->form_validation->set_rules('nb_problems', 'Nb Problems', 'required|numeric');
             $this->form_validation->set_rules('optimal_score', 'Optimal Score', 'required|numeric');
-            $this->form_validation->set_rules('starts_at', 'Starts At', 'required');
-            $this->form_validation->set_rules('contest_url', 'Contest URL');
-
+            $this->form_validation->set_rules('starts_at', 'Starts At', '');
+            //$this->form_validation->set_rules('contest_url', 'Contest URL');
+            //var_dump($starts_at);
+            //die();
             if($this->form_validation->run()) {
 
                 $r = array(
@@ -104,12 +113,16 @@ class Contest_management extends Manager_Controller {
                     'duration' => $duration,
                     'nb_problems' => $nb_problems,
                     'optimal_score' => $optimal_score,
-                    'starts_at' => $starts_at,
-                    'contest_url' => $contest_url
+                    'contest_url' => $contest_url,
+                    'visible' => $visible
                 );
+                if($starts_at)
+                    $r['starts_at'] = $starts_at;
 
+              //  var_dump($r);
+            //    die();
                 $contest = $this->contests_model->update($r);
-                assert($contest);
+                //assert($contest);
                 redirect('/contest_management');
         
             }
@@ -125,6 +138,7 @@ class Contest_management extends Manager_Controller {
             'nb_problems' => $contest->nb_problems,
             'optimal_score' => $contest->optimal_score,
             'contest_url' => $contest->contest_url,
+            'visible' => $contest->visible
 
         ),true);
         $this->load->view('base/index',$this->data);

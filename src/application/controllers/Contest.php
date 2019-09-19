@@ -11,6 +11,14 @@ class Contest extends MY_Controller {
         $contests_html = '';
         foreach ($contests as $contest)
         {
+            if(!$contest->visible)
+                continue;
+            //Convert time to a different format(Change duration formatting in the model)
+            $hours = floor($contest->duration / 3600);
+            $mins = floor($contest->duration / 60 % 60);
+            $secs = floor($contest->duration % 60);
+            $contest->duration = $timeFormat = sprintf('%02dh %02dm %02ds', $hours, $mins, $secs);
+
             $contests_html .= $this->load->view('contest/partials/contest_item',array(
                 'title' => $contest->title,
                 'starts_at' => $contest->starts_at,
@@ -51,6 +59,16 @@ class Contest extends MY_Controller {
         $is_enrolled = false;
         if(isset($this->user->id))
             $is_enrolled = $this->contests_model->is_enrolled($this->user->id,$contest_id);
+
+        //If contest start date is in the future then don't show the contest link
+        if($contest->starts_at > date('Y-m-d H:i:s',time()))
+            $contest->contest_url = null;
+
+        //Convert time to a different format (Todo: Change this in the model)
+        $hours = floor($contest->duration / 3600);
+        $mins = floor($contest->duration / 60 % 60);
+        $secs = floor($contest->duration % 60);
+        $contest->duration = $timeFormat = sprintf('%02dh %02dm %02ds', $hours, $mins, $secs);
 
         $this->data['content'] = $this->load->view('contest/show',array(
             'id' => $contest->id,
