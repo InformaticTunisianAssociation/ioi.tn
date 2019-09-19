@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Contests</h2>
+		        	<h2>Users</h2>
 	          	</div>
           	</div><!-- Subpage title end -->
 	</div><!-- Banner area end -->
@@ -24,20 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Starts at</th>
-                        <th scope="col">Duration</th>
-                        <th scope="col">Nb Problems</th>
-                        <th scope="col">Optimal Score</th>
-                        <th></th>
-                        <th></th>
+                        <th scope="col">username</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php echo $contests_html; ?>
+                        <?php echo $users_html; ?>
                     </tbody>
                 </table>
-                <a class="btn btn-primary" href="add" role="button">Add</a>
                 </div>
             </div>
         </div>

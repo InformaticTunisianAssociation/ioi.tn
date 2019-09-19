@@ -5,7 +5,7 @@
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Add Contest</h2>
+		        	<h2>Edit Training</h2>
 	          	</div>
           	</div><!-- Subpage title end -->
 	</div><!-- Banner area end -->
@@ -16,7 +16,7 @@
 		<div class="container">
 			
 			<div class="gap-40"></div>
-			<form method='post' action='/contest_management/add'>
+			<form method='post' action='/training_management/edit/<?php echo $id ?>'>
 			<div class="row">
 	    		<div class="col-md-12">
                     <div id="register-error"></div>
@@ -27,7 +27,7 @@
 								<div class="form-group">
 									<label>Title</label>
 								<input class="form-control" name="title" id="title"
-                                placeholder="Title" type="text" required>
+                                placeholder="Title" type="text" value="<?php echo $title ?>" required>
 								</div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Duration</label>
-									<input class="form-control" name="duration" id="duration" 
-									placeholder="Duration" type="text" required>
+									<label>Description</label>
+									<input class="form-control" name="description" id="ddescriptionuration" 
+									placeholder="Description" type="text" value="<?php echo $description ?>" required>
 								</div>
 							</div>
                         </div>
@@ -45,9 +45,9 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Number of Problems</label>
-									<input class="form-control" name="nb_problems" id="nb_problems" 
-									placeholder="Number of Problems" type="text" required>
+									<label>Location</label>
+									<input class="form-control" name="location" id="location" 
+									placeholder="Location" type="text" value="<?php echo $location ?>" required>
 								</div>
 							</div>
                         </div>
@@ -55,9 +55,9 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Optimal score</label>
-									<input class="form-control" name="optimal_score" id="optimal_score" 
-									placeholder="Optimal score" type="text" required>
+									<label>Location URL</label>
+									<input class="form-control" name="location_url" id="location_url" 
+									placeholder="Location URL" type="text" value="<?php echo $location_url ?>" required>
 								</div>
 							</div>
                         </div>
@@ -67,7 +67,7 @@
 								<div class="form-group">
 									<label>Starts at</label>
 									<input class="form-control" name="starts_at" id="starts_at" 
-									placeholder="Start At" type="date" required>
+									placeholder="Start At" type="date" value="<?php echo $starts_at ?>" required>
 								</div>
 							</div>
                         </div>
@@ -75,9 +75,35 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Contest URL</label>
-									<input class="form-control" name="contest_url" id="contest_url" 
-									placeholder="Contest URL" type="text" required>
+									<label>Ends at</label>
+									<input class="form-control" name="ends_at" id="ends_at" 
+									placeholder="Ends At" type="date" value="<?php echo $ends_at ?>" required>
+								</div>
+							</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Level</label>
+									<select name="level">
+										<option value="beginner">beginner</option>
+										<option value="intermidiate">intermidiate</option>
+										<option value="advanced">advanced</option>
+									</select>
+								</div>
+							</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Topic</label>
+									<select name="topic">
+										<option value="problem_solving">problem_solving</option>
+										<option value="scratch">scratch</option>
+										<option value="robotics">robotics</option>
+									</select>
 								</div>
 							</div>
                         </div>
@@ -86,7 +112,7 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
                                 <div class="text-right"><br>
-                                    <button id="btn-register" class="btn btn-primary solid blank" type="submit">Add</button> 
+                                    <button id="btn-register" class="btn btn-primary solid blank" type="submit">Edit</button> 
                                 </div>
                             </div>
                         </div>

@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </p>
 
                     Competitions:
-                    <table style="width:100%">
+                    <table border='1' style="width:100%">
                         <tr>
                             <th>Name</th>
                             <th>Score</th>
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </table>
 
                     Training:
-                    <table style="width:100%">
+                    <table border='1' style="width:100%">
                         <tr>
                             <th>Name</th>
                             <th>Role</th>
@@ -65,15 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
 
                         <?php echo $participations_html ?>
-                        
-
-                        <tr>
-                            <td>Summer Camp 2019 - 2</td>
-                            <td>Participant</td>
-                            <td>20-08-2019</td>
-                            <td>Crefoc - Nabeul</td>
-                        </tr>
-                    </table>
+                                            </table>
 
                 </div>
             </div>

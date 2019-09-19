@@ -1,10 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Me extends User_Controller {
+class User_management extends Manager_Controller {
 
-    public function edit_info()
+
+    public function index() {
+        $this->load->model('users_model');
+        $users = $this->users_model->get_all();
+        $users_html = '';
+        foreach ($users as $user)
+        {
+            $users_html .= $this->load->view('dashboard/partials/user_item',array(
+                'id' => $user->id,
+                'username' => $user->username,
+            ),true);
+        }
+        $this->data['content'] = $this->load->view('dashboard/index',array(
+            'users_html' => $users_html
+        ),true);
+        $this->load->view('base/index',$this->data);
+
+    }
+
+    public function edit_info($id)
     {
+        $this->load->model('users_model');
 
         $this->load->helper('form');
 
@@ -138,26 +158,27 @@ class Me extends User_Controller {
 
 
             //Add the id of the current user to the array (This is critical or we will update all users data!)
-            $params['id'] = $this->user->id;
+            $params['id'] = $id;
             assert($params['id']);
             $this->load->model('users_model');
             $this->users_model->update($params);
             $_SESSION['user'] = $this->users_model->get($params['id']);
             redirect(current_url());
         }
-        $this->data['content'] = $this->load->view('me/edit_profile',array(
-            'firstname' => $this->user->firstname,
-            'lastname' => $this->user->lastname,
-            'email' => $this->user->email,
-            'username' => $this->user->username,
-            'date_birth' => $this->user->date_birth,
-            'phone' => $this->user->phone,
-            'codeforces' => $this->user->codeforces,
-            'franceioi' => $this->user->franceioi,
-            'school_name' => $this->user->school_name,
-            'city' => $this->user->city,
-            'profile_photo' => $this->user->photo_url,
-            'passport_scan_photo' => $this->user->passport_scan_url
+        $user = $this->users_model->get($id);
+        $this->data['content'] = $this->load->view('dashboard/edit_profile',array(
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'email' => $user->email,
+            'username' => $user->username,
+            'date_birth' => $user->date_birth,
+            'phone' => $user->phone,
+            'codeforces' => $user->codeforces,
+            'franceioi' => $user->franceioi,
+            'school_name' => $user->school_name,
+            'city' => $user->city,
+            'profile_photo' => $user->photo_url,
+            'passport_scan_photo' => $user->passport_scan_url
 
         ),true);
         $this->load->view('base/index',$this->data);

@@ -5,7 +5,7 @@
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Add Contest</h2>
+		        	<h2>Scores</h2>
 	          	</div>
           	</div><!-- Subpage title end -->
 	</div><!-- Banner area end -->
@@ -16,7 +16,7 @@
 		<div class="container">
 			
 			<div class="gap-40"></div>
-			<form method='post' action='/contest_management/add'>
+			<form method='post' action='/scores/add'>
 			<div class="row">
 	    		<div class="col-md-12">
                     <div id="register-error"></div>
@@ -25,61 +25,46 @@
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Title</label>
-								<input class="form-control" name="title" id="title"
+									<label>Contest ID</label>
+								<input class="form-control" name="contest_id" id="contest_id"
                                 placeholder="Title" type="text" required>
 								</div>
                             </div>
                         </div>
-                        <div class="row">
+						<div class="row">
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Duration</label>
-									<input class="form-control" name="duration" id="duration" 
-									placeholder="Duration" type="text" required>
+									<label>User ID</label>
+								<input class="form-control" name="user_id" id="user_id"
+                                placeholder="Title" type="text" required>
 								</div>
-							</div>
+                            </div>
                         </div>
-                        <div class="row">
+						<div class="row">
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Number of Problems</label>
-									<input class="form-control" name="nb_problems" id="nb_problems" 
-									placeholder="Number of Problems" type="text" required>
+									<label>Score</label>
+								<input class="form-control" name="score" id="score"
+                                placeholder="Title" type="text" required>
 								</div>
-							</div>
+                            </div>
                         </div>
-                        <div class="row">
+						<div class="row">
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Optimal score</label>
-									<input class="form-control" name="optimal_score" id="optimal_score" 
-									placeholder="Optimal score" type="text" required>
-								</div>
-							</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4"></div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label>Starts at</label>
-									<input class="form-control" name="starts_at" id="starts_at" 
-									placeholder="Start At" type="date" required>
-								</div>
-							</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4"></div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label>Contest URL</label>
-									<input class="form-control" name="contest_url" id="contest_url" 
-									placeholder="Contest URL" type="text" required>
-								</div>
-							</div>
+									<label>Medal</label>
+									<select name="medal">
+										<option value="gold">gold</option>
+										<option value="silver">silver</option>
+										<option value="bronze">bronze</option>
+										<option value="trophy">trophy</option>
+                                    </select>
+
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">

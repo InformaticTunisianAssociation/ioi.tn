@@ -5,12 +5,9 @@ class U extends MY_Controller {
 
 	public function index($username)
 	{
-	    $this->set_toast(array(
-	        'message' => 'Yay',
-            'type' => 'warning'
-        ));
         $this->load->model('trainings_model');
         $this->load->model('contests_model');
+        $this->load->model('contestants_model');
 
 		//LOAD JS/CSS FILES
         //
@@ -45,11 +42,30 @@ class U extends MY_Controller {
         $competitions_html = '';
         foreach ($competitions as $competition)
         {
+            $rank = 1;
+            $compt_info = $this->contestants_model->get_row_where(array(
+                'contest_id' => $competition->contest_id,
+                'user_id' => $user->id
+            ));
+
+            $score = $compt_info->score;
+            $medal = $compt_info->medal;
+
+            $participants = $this->contestants_model->get_where(array(
+                'contest_id' => $competition->contest_id
+            ));
+
+            foreach($participants as $participant) {
+                if($participant->score > $score) {
+                    $rank++;
+                }
+            }
+    
             $competitions_html .= $this->load->view('u/partials/competition_item',array(
                 'title' => $competition->title,
-                'score' => $competition->score,
-                'rank' => 5,
-                'medal' => $competition->medal,
+                'score' => $score,
+                'rank' => $rank,
+                'medal' => $medal,
 
             ),true);
         }
