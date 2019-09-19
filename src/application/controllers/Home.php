@@ -5,6 +5,12 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
+        if(isset($_SESSION['redirect_url']))
+        $this->set_toast(array(
+            'message' => 'Done',
+            'type' => 'warning'
+        ));
+
 		$this->load->model('settings_model');
 
 	    $slider_section = $this->load->view('home/partials/slider_section',array(),true);

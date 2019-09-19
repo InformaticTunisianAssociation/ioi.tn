@@ -3,16 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <div id="banner-area">
-		<img src="/assets/images/banner/banner2.jpg" alt ="" />
 		<div class="parallax-overlay"></div>
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
 		        	<h2>Edit</h2>
-		        	<ul class="breadcrumb">
-			            <li>Home</li>
-			            <li><a href="#"> Edit</a></li>
-		          	</ul>
 	          	</div>
           	</div><!-- Subpage title end -->
 	</div><!-- Banner area end -->
