@@ -52,7 +52,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?php echo $duration  ?></td>
                                 <td><?php echo $nb_problems ?></td>
                                 <td><?php echo $optimal_score ?></td>
-                                <td><a href="<?php echo $contest_url ?>"><?php if($contest_url){ ?>Go to contest <?php } ?></a></td>
+                                <td>
+                                    <?php if($contest_url){ ?>
+                                        <a href="<?php echo $contest_url ?>">Go to contest</a>
+                                    <?php } else { ?>
+                                        <p id="contest-launch-timer" class="text-left" seconds="<?php echo $seconds_before_launch ?>"></p>
+                                    <?php } ?>
+
+                                </td>
 
                             </tr>
                             </tbody>

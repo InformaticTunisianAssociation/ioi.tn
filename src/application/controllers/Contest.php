@@ -45,6 +45,7 @@ class Contest extends MY_Controller {
         //LOAD JS/CSS FILES
         //
         $this->load_css('/assets/ioi/css/contest/show.css');
+        $this->load_js('/assets/ioi/js/contest/show.js');
         //$this->load_js('/assets/ioi/js/me/edit_profile.js');
         //
         //LOAD JS/CSS FILES
@@ -70,6 +71,13 @@ class Contest extends MY_Controller {
         $secs = floor($contest->duration % 60);
         $contest->duration = $timeFormat = sprintf('%02dh %02dm %02ds', $hours, $mins, $secs);
 
+        //Get how many seconds before the contest starts
+        $seconds_before_launch = null;
+        if($contest->starts_at)
+            $seconds_before_launch = strtotime($contest->starts_at) - time();
+        if($seconds_before_launch <= 0)
+            $seconds_before_launch = null;
+
         $this->data['content'] = $this->load->view('contest/show',array(
             'id' => $contest->id,
             'title' => $contest->title,
@@ -80,7 +88,8 @@ class Contest extends MY_Controller {
             'optimal_score' => $contest->optimal_score,
             'contest_url' => $contest->contest_url,
             'is_enrolled' => $is_enrolled,
-            'photo_url' => $contest->photo_url
+            'photo_url' => $contest->photo_url,
+            'seconds_before_launch' => $seconds_before_launch
         ),true);
         $this->load->view('base/index',$this->data);
     }
