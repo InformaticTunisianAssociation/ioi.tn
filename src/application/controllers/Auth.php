@@ -144,6 +144,7 @@ class Auth extends MY_Controller {
 
     public function do_register()
     {
+        $this->load->model('contests_model');
         //Todo: add input validation here here (Hint: use input validation library of codeigniter)
         $firstname = $this->input->post('firstname',true);
         $lastname = $this->input->post('lastname',true);
@@ -153,8 +154,7 @@ class Auth extends MY_Controller {
         //$password_confirmation = $this->input->post('password_confirmation',true);
         $phone = $this->input->post('phone',true);
         $date_birth = $this->input->post('date_birth',true);
-
-
+        $topro = $this->input->post('topro',true);
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('firstname', 'First name', 'required');
@@ -199,7 +199,46 @@ class Auth extends MY_Controller {
         $user = $this->users_model->get($user_id);
         assert($user);
         //user does exist so we log him in, we store his info in the session
-        $_SESSION['user'] = $user;
+        $_SESSION['user'] = $user;        
+        if( (int) $topro == 1) {
+            $contest = $this->contests_model->get(1);
+            if(!$contest)
+                show_404();
+            $this->contests_model->enroll($user_id,$contest->id);
+        }
+        echo json_encode(array(
+            'error' => null, // Will only be used on failure
+            'redirect_link' => base_url() //will only be used on success
+        ));
+    }
+
+
+    //Todo: test the reset password system
+    public function do_reset()
+    {
+        //if user is logged in then get him out of here
+        if(isset($this->user->id))
+            redirect(base_url());
+
+        $username = $this->input->post('username',true);
+        if(!$username)
+            $this->error('Username is required!');
+
+
+        $user = $this->users_model->get_row_where(array(
+            'username' => $username
+        ));
+        if(!$user)
+            $user = $this->users_model->get_row_where(array(
+                'email' => $username
+            ));
+
+        if(!$user)
+            $this->error('User does not exist');
+
+        $this->load->helper('email');
+        $this->load->library('email');
+
         $toast = array(
             'toast_text' => 'You are almost done, add more info about yourself here then click update!',
             'toast_type' => 'success'
