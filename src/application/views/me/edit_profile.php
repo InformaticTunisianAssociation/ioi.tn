@@ -129,13 +129,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>Grade</label>
 									<br>
 									<select name="grade">
-										<option value="7eme">7ème année de base</option>
-										<option value="8eme">8ème année de base</option>
-										<option value="9eme">9ème année de base</option>
-										<option value="1ere">1ère année secondaire</option>
-										<option value="2eme">2ème année secondaire</option>
-										<option value="3eme">3ème année secondaire</option>
-										<option value="bac">4ème année secondaire (bac)</option>
+										<option <?php if($grade=="7eme") echo "selected" ?> value="7eme">7ème année de base</option>
+										<option <?php if($grade=="8eme") echo "selected" ?> value="8eme">8ème année de base</option>
+										<option <?php if($grade=="9eme") echo "selected" ?> value="9eme">9ème année de base</option>
+										<option <?php if($grade=="1ere") echo "selected" ?> value="1ere">1ère année secondaire</option>
+										<option <?php if($grade=="2eme") echo "selected" ?> value="2eme">2ème année secondaire</option>
+										<option <?php if($grade=="3eme") echo "selected" ?> value="3eme">3ème année secondaire</option>
+										<option <?php if($grade=="bac") echo "selected" ?> value="bac">4ème année secondaire (bac)</option>
 									</select>
 								</div>
 							</div>
@@ -157,30 +157,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>State</label>
 									<br>
 									<select name="state">
-										<option value="Ariana">Ariana</option>
-										<option value="Béja">Béja</option>
-										<option value="Ben Arous">Ben Arous</option>
-										<option value="Bizerte">Bizerte</option>
-										<option value="Gabès">Gabès</option>
-										<option value="Gafsa">Gafsa</option>
-										<option value="Jendouba">Jendouba</option>
-										<option value="Kairouan">Kairouan</option>
-										<option value="Kasserine">Kasserine</option>
-										<option value="Kebili">Kebili</option>
-										<option value="Kef">Kef</option>
-										<option value="Mahdia">Mahdia</option>
-										<option value="Manouba">Manouba</option>
-										<option value="Medenine">Medenine</option>
-										<option value="Monastir">Monastir</option>
-										<option value="Nabeul">Nabeul</option>
-										<option value="Sfax">Sfax</option>
-										<option value="Sidi Bouzid">Sidi Bouzid</option>
-										<option value="Siliana">Siliana</option>
-										<option value="Sousse">Sousse</option>
-										<option value="Tataouine">Tataouine</option>
-										<option value="Tozeur">Tozeur</option>
-										<option value="Tunis">Tunis</option>
-										<option value="Zaghouan">Zaghouan</option>
+										<option <?php if($state=="Ariana") echo "selected" ?> value="Ariana">Ariana</option>
+										<option <?php if($state=="Béja") echo "selected" ?> value="Béja">Béja</option>
+										<option <?php if($state=="Ben Arous") echo "selected" ?> value="Ben Arous">Ben Arous</option>
+										<option <?php if($state=="Bizerte") echo "selected" ?> value="Bizerte">Bizerte</option>
+										<option <?php if($state=="Gabès") echo "selected" ?> value="Gabès">Gabès</option>
+										<option <?php if($state=="Gafsa") echo "selected" ?> value="Gafsa">Gafsa</option>
+										<option <?php if($state=="Jendouba") echo "selected" ?> value="Jendouba">Jendouba</option>
+										<option <?php if($state=="Kairouan") echo "selected" ?> value="Kairouan">Kairouan</option>
+										<option <?php if($state=="Kasserine") echo "selected" ?> value="Kasserine">Kasserine</option>
+										<option <?php if($state=="Kebili") echo "selected" ?> value="Kebili">Kebili</option>
+										<option <?php if($state=="Kef") echo "selected" ?> value="Kef">Kef</option>
+										<option <?php if($state=="Mahdia") echo "selected" ?> value="Mahdia">Mahdia</option>
+										<option <?php if($state=="Manouba") echo "selected" ?> value="Manouba">Manouba</option>
+										<option <?php if($state=="Medenine") echo "selected" ?> value="Medenine">Medenine</option>
+										<option <?php if($state=="Monastir") echo "selected" ?> value="Monastir">Monastir</option>
+										<option <?php if($state=="Nabeul") echo "selected" ?> value="Nabeul">Nabeul</option>
+										<option <?php if($state=="Sfax") echo "selected" ?> value="Sfax">Sfax</option>
+										<option <?php if($state=="Sidi Bouzid") echo "selected" ?> value="Sidi Bouzid">Sidi Bouzid</option>
+										<option <?php if($state=="Siliana") echo "selected" ?> value="Siliana">Siliana</option>
+										<option <?php if($state=="Sousse") echo "selected" ?> value="Sousse">Sousse</option>
+										<option <?php if($state=="Tataouine") echo "selected" ?> value="Tataouine">Tataouine</option>
+										<option <?php if($state=="Tozeur") echo "selected" ?> value="Tozeur">Tozeur</option>
+										<option <?php if($state=="Tunis") echo "selected" ?> value="Tunis">Tunis</option>
+										<option <?php if($state=="Zaghouan") echo "selected" ?> value="Zaghouan">Zaghouan</option>
 									</select>
 								</div>
 							</div>
@@ -192,9 +192,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>Knowledge Level</label>
 									<br>
 									<select name="knowledge_level">
-										<option value="beginner">beginner</option>
-										<option value="intermediate">intermediate</option>
-										<option value="advanced">advanced</option>
+										<option <?php if($knowledge_level=="Beginner") echo "selected" ?> value="beginner">beginner</option>
+										<option <?php if($knowledge_level=="Intermediate") echo "selected" ?> value="intermediate">intermediate</option>
+										<option <?php if($knowledge_level=="Advanced") echo "selected" ?> value="advanced">advanced</option>
 									</select>
 								</div>
 							</div>

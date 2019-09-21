@@ -155,7 +155,10 @@ class Me extends User_Controller {
             'codeforces' => $this->user->codeforces,
             'franceioi' => $this->user->franceioi,
             'school_name' => $this->user->school_name,
+            'knowledge_level' => $this->user->knowledge_level,
             'city' => $this->user->city,
+            'state' => $this->user->state,
+            'grade' => $this->user->grade,
             'profile_photo' => $this->user->photo_url,
             'passport_scan_photo' => $this->user->passport_scan_url
 

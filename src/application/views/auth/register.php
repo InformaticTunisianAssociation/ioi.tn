@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			<div class="row">
 	    		<div class="col-md-12">
-                    <div id="register-error"></div>
+                    <div id="register-error" class="" role="alert"></div>
 	    			<div id="register" >
 						<div class="row">
                             <div class="col-md-4"></div>
@@ -102,6 +102,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>Phone</label>
 									<input class="form-control" name="phone" id="phone" 
 									placeholder="Phone Number" type="text" required>
+								</div>
+							</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Apply to TOP (Tunisian Olympiad in Programming) 2020?</label>
+									<input class="form-check-input" name="topro" id="topro" 
+									placeholder="Apply to top" type="checkbox" value="1" checked required>
 								</div>
 							</div>
                         </div>

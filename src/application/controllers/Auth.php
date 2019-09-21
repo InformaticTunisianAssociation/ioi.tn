@@ -137,6 +137,7 @@ class Auth extends MY_Controller {
 
     public function do_register()
     {
+        $this->load->model('contests_model');
         //Todo: add input validation here here (Hint: use input validation library of codeigniter)
         $firstname = $this->input->post('firstname',true);
         $lastname = $this->input->post('lastname',true);
@@ -146,8 +147,7 @@ class Auth extends MY_Controller {
         //$password_confirmation = $this->input->post('password_confirmation',true);
         $phone = $this->input->post('phone',true);
         $date_birth = $this->input->post('date_birth',true);
-
-
+        $topro = $this->input->post('topro',true);
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('firstname', 'First name', 'required');
@@ -193,6 +193,13 @@ class Auth extends MY_Controller {
         assert($user);
         //user does exist so we log him in, we store his info in the session
         $_SESSION['user'] = $user;
+        
+        if( (int) $topro == 1) {
+            $contest = $this->contests_model->get(1);
+            if(!$contest)
+                show_404();
+            $this->contests_model->enroll($user_id,$contest->id);
+        }
         echo json_encode(array(
             'error' => null, // Will only be used on failure
             'redirect_link' => base_url() //will only be used on success
