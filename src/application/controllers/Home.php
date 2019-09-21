@@ -6,6 +6,14 @@ class Home extends MY_Controller {
 	public function index()
 	{
 
+        //LOAD JS/CSS FILES
+        //
+        $this->load_css('/assets/ioi/css/home/index.css');
+        $this->load_js('/assets/ioi/js/home/index.js');
+        //$this->load_js('/assets/ioi/js/me/edit_profile.js');
+        //
+        //LOAD JS/CSS FILES
+
         if(isset($_SESSION['redirect_url']))
             $this->set_toast(array(
                 'message' => 'Done',
@@ -13,8 +21,27 @@ class Home extends MY_Controller {
             ));
 
 		$this->load->model('settings_model');
+        $this->load->model('contests_model');
+        $next_contest = $this->contests_model->get_next_contest();
+        //Get how many seconds before the contest starts
+        //var_dump($next_contest);
+        //die();
+        $seconds_before_next_contest = null;
+        if($next_contest and $next_contest->starts_at)
+            $seconds_before_next_contest = strtotime($next_contest->starts_at) - time();
+        if($next_contest and $seconds_before_next_contest <= 0)
+            $seconds_before_next_contest = null;
+        $next_contest_title = null;
+        if($next_contest and $next_contest->title)
+        {
+            $next_contest_title = $next_contest->title;
+        }
 
-	    $slider_section = $this->load->view('home/partials/slider_section',array(),true);
+
+	    $slider_section = $this->load->view('home/partials/slider_section',array(
+	        'contest_title' =>$next_contest_title,
+            'seconds_before_next_contest' => $seconds_before_next_contest
+        ),true);
 	    $service_box = $this->load->view('home/partials/service_box',array(),true);
 
 

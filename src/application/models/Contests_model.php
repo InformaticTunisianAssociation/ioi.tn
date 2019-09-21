@@ -36,6 +36,14 @@ class Contests_model extends MY_Model
         return $this->db->get('contestants')->result();
     }
 
+    public function get_next_contest()
+    {
+        $this->db->select('contests.*');
+        $this->db->where('contests.starts_at >= now()');
+        $this->db->order_by('starts_at', 'ASC');
+        return $this->db->get('contests')->row();
+    }
+
     //This method will update the user score, medal ...
     public function update_score(array $record)
     {

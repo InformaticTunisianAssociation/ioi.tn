@@ -62,8 +62,8 @@ class Contest extends MY_Controller {
             $is_enrolled = $this->contests_model->is_enrolled($this->user->id,$contest_id);
 
         //If contest start date is in the future then don't show the contest link
-        if($contest->starts_at > date('Y-m-d H:i:s',time()))
-            $contest->contest_url = null;
+        //if($contest->starts_at > date('Y-m-d H:i:s',time()))
+          //  $contest->contest_url = null;
 
         //Convert time to a different format (Todo: Change this in the model)
         $hours = floor($contest->duration / 3600);

@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?php echo $nb_problems ?></td>
                                 <td><?php echo $optimal_score ?></td>
                                 <td>
-                                    <?php if($contest_url){ ?>
+                                    <?php if(!$seconds_before_launch){ ?>
                                         <a href="<?php echo $contest_url ?>">Go to contest</a>
                                     <?php } else { ?>
                                         <p id="contest-launch-timer" class="text-left" seconds="<?php echo $seconds_before_launch ?>"></p>

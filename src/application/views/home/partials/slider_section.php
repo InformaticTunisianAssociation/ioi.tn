@@ -12,8 +12,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="cd-full-width">
                     <h2>IOI 2020 Singapore</h2>
                     <h3>Your path to the 32nd International Olympiad in informatics</h3>
-                    <a href="/contest" class="btn btn-primary white cd-btn">See the contests</a>
-                    <a href="/register" class="btn btn-primary solid cd-btn">Create an account</a>
+                    <?php if($seconds_before_next_contest){ ?>
+                        <h4><span class="contest-countdown-title" style="color: whitesmoke ; background-color: rgba(0, 0, 0, 0.5); border-radius: 5px; padding: 5px"><b ><span id="contest-launch-timer"  class="text-left" seconds="<?php echo $seconds_before_next_contest ?>"></span></b>&nbsp;Before <span style="color: #ee3b24;"><?php echo $contest_title ?></span> starts!</span></h4 >
+                    <?php } ?>
+                    <?php /*<a href="/contest" class="btn btn-primary white cd-btn">See the contests</a>*/ ?>
+                    <a href="/register" class="btn btn-primary solid cd-btn">
+                        Register Now
+                    </a>
                 </div> <!-- .cd-full-width -->
             </li>
             <li>
