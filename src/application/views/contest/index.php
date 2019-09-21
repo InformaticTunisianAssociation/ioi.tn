@@ -24,7 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			<div class="gap-40"></div>
 
+
 			<div class="row">
+                <div class="col-md-12">
+                    <h4>
+                        Here (Bellow), you can see the list of all the competitions that you can apply in.
+                        You simply click on any one of them and click the button "Apply Now"
+                    </h4>
+                </div>
 	    		<div class="col-md-12">
                 <table class="table table-striped">
                     <thead>

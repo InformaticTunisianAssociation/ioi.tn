@@ -24,10 +24,13 @@ class MY_Controller extends CI_Controller
         //LOAD SETTINGS MODEL
 
 
+
         //$this->output->enable_profiler(TRUE);
         //If user is logged in retrieve his profile from the session
         if(isset($_SESSION['user']))
             $this->user = $_SESSION['user'];
+
+
 
 
 
@@ -60,6 +63,18 @@ class MY_Controller extends CI_Controller
 
         //Assign the user to the data variable
         $this->data['user'] = $this->user;
+
+        //If there are errors or toasts in the get array, print them out
+        if($this->input->get('toast_text'))
+        {
+
+            $toast_text = $this->input->get('toast_text');
+            $toast_type = $this->input->get('toast_type') ? $this->input->get('toast_type') : 'info';
+            $this->set_toast(array(
+                'message' => $toast_text,
+                'type' => $toast_type
+            ));
+        }
 
 
         //LOAD HEADER

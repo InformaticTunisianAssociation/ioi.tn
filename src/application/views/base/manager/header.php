@@ -47,7 +47,7 @@
 
   <!-- Nav Item - Scores -->
   <li class="nav-item">
-    <a class="nav-link" href="/scores/add">
+    <a class="nav-link" href="/scores/update">
       <i class="fas fa-fw fa-table"></i>
       <span>Scores</span></a>
   </li>

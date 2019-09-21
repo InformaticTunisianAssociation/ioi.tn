@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section id="image-block" class="image-block no-padding">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 ts-padding" style="height:650px;background:url(/assets/images/image-block-bg.jpg) 50% 50% / cover no-repeat;">
+            <?php /*<div class="col-md-6 ts-padding" style="height:650px;background:url(/assets/images/image-block-bg.jpg) 50% 50% / cover no-repeat;">
             </div>
             <div class="col-md-6 ts-padding img-block-right">
                 <div class="img-block-head text-center">
@@ -40,6 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>Simply dummy text and typesettings industry has been the industry</p>
                     </div>
                 </div><!--/ End 1st block -->
+
+            </div>
+            */ ?>
+            <div class="col text-center">
+
+                <iframe  width="100%" height="300px" src="https://www.youtube.com/embed/-dEAowdi7sg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             </div>
         </div>
