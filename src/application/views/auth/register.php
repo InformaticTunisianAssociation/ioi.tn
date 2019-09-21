@@ -109,9 +109,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Apply to TOP (Tunisian Olympiad in Programming) 2020?</label>
-									<input class="form-check-input" name="topro" id="topro" 
-									placeholder="Apply to top" type="checkbox" value="1" checked required>
+                                    <input class="form-check-input" name="register_next_contest" id="register_next_contest" type="checkbox" checked required>
+                                    <label>Register in <?php echo $next_contest_title ?> as well?</label>
 								</div>
 							</div>
                         </div>

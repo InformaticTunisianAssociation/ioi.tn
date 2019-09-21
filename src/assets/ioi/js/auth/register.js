@@ -13,7 +13,8 @@ function register() {
         'email': $('#register input[name=email]').val(),
         'password': $('#register input[name=password]').val(),
         'date_birth': $('#register input[name=date_birth]').val(),
-        'phone': $('#register input[name=phone]').val()
+        'phone': $('#register input[name=phone]').val(),
+        'register_next_contest' : $('#register input[name=register_next_contest]').is(":checked")
     };
 
     // process the form

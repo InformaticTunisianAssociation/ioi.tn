@@ -71,10 +71,17 @@ class Auth extends MY_Controller {
         //LOAD JS/CSS FILES
         //$this->load->view('signup/index');
 
+        //Extract next contest if any
+        $this->load->model('contests_model');
+        $next_contest = $this->contests_model->get_next_contest();
+        $next_contest_title = null;
+        if($next_contest)
+            $next_contest_title = $next_contest->title;
+
 	    $this->data['header'] = $this->load->view('base/header', array(), true);
 	    $this->data['footer'] = $this->load->view('base/footer', array(), true);
         $this->data['content'] = $this->load->view('auth/register',array(
-            //'site_name' => $this->settings_model->get('site_name')
+            'next_contest_title' => $next_contest_title
         ),true);
         $this->load->view('base/index',$this->data);
     }
@@ -154,7 +161,7 @@ class Auth extends MY_Controller {
         //$password_confirmation = $this->input->post('password_confirmation',true);
         $phone = $this->input->post('phone',true);
         $date_birth = $this->input->post('date_birth',true);
-        $topro = $this->input->post('topro',true);
+        $register_next_contest = $this->input->post('register_next_contest',true);
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('firstname', 'First name', 'required');
@@ -165,7 +172,7 @@ class Auth extends MY_Controller {
         //$this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
         $this->form_validation->set_rules('phone', 'Phone number', 'required');
         $this->form_validation->set_rules('date_birth', 'Date of birth', 'required'); // Todo: Adds a regular expression
-
+        //Todo: Validate the 'register in next contest' field
 
 
         if($this->form_validation->run() == false)
@@ -200,11 +207,10 @@ class Auth extends MY_Controller {
         assert($user);
         //user does exist so we log him in, we store his info in the session
         $_SESSION['user'] = $user;
-        if( (int) $topro == 1) {
-            $contest = $this->contests_model->get(1);
-            if(!$contest)
-                show_404();
-            $this->contests_model->enroll($user_id,$contest->id);
+        $next_contest = $this->contests_model->get_next_contest();
+        if($next_contest and $register_next_contest)
+        {
+            $this->contests_model->enroll($user_id,$next_contest->id);
         }
         $toast = array(
             'toast_text' => 'You are almost done, add more info about yourself here then click update!',
