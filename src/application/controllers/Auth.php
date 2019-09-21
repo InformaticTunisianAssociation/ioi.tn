@@ -31,6 +31,7 @@ class Auth extends MY_Controller {
 	{
 
 
+
         //die(password_hash('12345', PASSWORD_DEFAULT));
         //LOAD JS/CSS FILES
         //
@@ -112,7 +113,13 @@ class Auth extends MY_Controller {
         }
         else
         {
-            redirect('/login');
+
+            $toast = array(
+                'toast_text' => 'Wrong username or password, please verify them or call ' . $this->settings_model->get('phone'),
+                'toast_type' => 'danger'
+            );
+            $query_sting = http_build_query($toast);
+            redirect("/login?{$query_sting}");
         }
 
     }
@@ -192,8 +199,7 @@ class Auth extends MY_Controller {
         $user = $this->users_model->get($user_id);
         assert($user);
         //user does exist so we log him in, we store his info in the session
-        $_SESSION['user'] = $user;
-        
+        $_SESSION['user'] = $user;        
         if( (int) $topro == 1) {
             $contest = $this->contests_model->get(1);
             if(!$contest)
@@ -233,146 +239,18 @@ class Auth extends MY_Controller {
         $this->load->helper('email');
         $this->load->library('email');
 
-        $email_config = array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'smtp.sendgrid.net',
-            'smtp_port' => '2525',
-            'smtp_user' => 'apikey',
-            'smtp_pass' => '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',
-            'charset' => 'utf8',
-            'mailtype' => 'html',
-            'wordwrap' => TRUE
+        $toast = array(
+            'toast_text' => 'You are almost done, add more info about yourself here then click update!',
+            'toast_type' => 'success'
         );
-
-        $this->email->initialize($email_config);
-        $this->email->from('no_reply@vipay.tn', 'Study.tn');
-        $this->email->to($user->email);
-        //Generate a random reset code and associate it to the user
-        $reset_code = uniqid();
-
-        $this->users_model->update(array(
-            'id' => $user->id,
-            'password_reset_code' => $reset_code,
-        ));
-
-        $reset_link = base_url("auth/change_password?" . http_build_query(array(
-                'reset_code' => $reset_code,
-                'user_id' => $user->id
-            )));
-        $message = $this->load->view('auth/email_reset_1',array(
-            'reset_link' => $reset_link
-        ),true);
-
-
-        $this->email->subject('Study.tn Account password reset');
-        $this->email->message($message);
-        $this->email->send();
-
-
+        $query_sting = http_build_query($toast);
 
         echo json_encode(array(
-            'error' => null,
-            'result' => "We sent an email to your inbox!",
-            'reset_link' => $reset_link
+            'error' => null, // Will only be used on failure
+            'redirect_link' => "/me/edit_info?{$query_sting}" //will only be used on success
         ));
     }
 
 
 
-    public function reset()
-    {
-
-        //LOAD JS/CSS FILES
-        //
-        $this->load_css('/assets/study/css/auth/reset.css');
-        $this->load_js('/assets/study/js/auth/reset.js');
-        //
-        //LOAD JS/CSS FILES
-
-        //if user is logged in then get him out of here
-        if(isset($this->user->id))
-            redirect(base_url());
-
-
-        $this->data['header'] = '';
-        $this->data['footer'] = '';
-        $this->data['content'] = $this->load->view('auth/reset',array(
-            'site_name' => $this->settings_model->get('site_name')
-        ),true);
-        $this->load->view('base/index',$this->data);
-    }
-
-    //This displays the page to change your password
-    public function change_password()
-    {
-
-        //LOAD JS/CSS FILES
-        //
-        $this->load_css('/assets/study/css/auth/change_password.css');
-        $this->load_js('/assets/study/js/auth/change_password.js');
-        //
-        //LOAD JS/CSS FILES
-
-        $user_id = $this->input->get('user_id',true);
-        $reset_code = $this->input->get('reset_code',true);
-        if(!$user_id || !$reset_code)
-            redirect(base_url());
-
-        $user = $this->users_model->get($user_id);
-        if(!$user)
-            redirect(base_url());
-
-        if($user->password_reset_code != $reset_code)
-            redirect(base_url());
-
-        $this->data['header'] = '';
-        $this->data['footer'] = '';
-        $this->data['content'] = $this->load->view('auth/change_password',array(
-            'user_id' => $user_id,
-            'reset_code' => $reset_code
-        ),true);
-        $this->load->view('base/index',$this->data);
-    }
-
-    //This do the change of your password
-
-    public function do_change_password()
-    {
-        $user_id = $this->input->post('user_id',true);
-        $reset_code = $this->input->post('reset_code',true);
-        if(!$user_id || !$reset_code)
-            $this->error('User id and reset codes are required!');
-
-        $user = $this->users_model->get($user_id);
-        if(!$user)
-            $this->error('User does not exist!');
-
-
-
-        $password = $this->input->post('password',true);
-        $password_confirmation = $this->input->post('password_confirmation');
-
-        if(!$user->password_reset_code)
-            $this->error('You need to reset your password first!');
-
-        if($user->password_reset_code != $reset_code)
-            $this->error('Link you used is not valid, please <a href="/auth/reset">reset your account again!</a>');
-
-        if($password != $password_confirmation)
-            $this->error('Passwords do not match!');
-
-        //At this point, we can safely change the password
-
-        $this->users_model->update(array(
-            'id' => $user_id,
-            'password_hash' => password_hash($password, PASSWORD_DEFAULT),
-            'password_reset_code' => uniqid() //This to prevent user from resetting twice with the same link
-        ));
-
-        echo json_encode(array(
-            'error' => null,
-            'result' => 'Password has been updated, <a href="/login">Login now with your new password!</a>',
-        ));
-
-    }
 }

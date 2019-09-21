@@ -143,7 +143,12 @@ class Me extends User_Controller {
             $this->load->model('users_model');
             $this->users_model->update($params);
             $_SESSION['user'] = $this->users_model->get($params['id']);
-            redirect(current_url());
+            $toast = array(
+                'toast_text' => 'Great, You have updated your profile, you can now apply in contests <a href="/contest">here</a>',
+                'toast_type' => 'success'
+            );
+            $query_sting = http_build_query($toast);
+            redirect(current_url() . '?' . $query_sting);
         }
         $this->data['content'] = $this->load->view('me/edit_profile',array(
             'firstname' => $this->user->firstname,

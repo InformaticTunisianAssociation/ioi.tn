@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </h2>
                     </div><!-- post heading end -->
                     <div class="entry-content">
-                        <p><?php // echo $title ?></p>
+                        <p><?php echo $description ?></p>
                         <?php // echo $starts_at  ?>
 
                         <table class="table">

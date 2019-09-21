@@ -73,6 +73,7 @@ class Contest extends MY_Controller {
         $this->data['content'] = $this->load->view('contest/show',array(
             'id' => $contest->id,
             'title' => $contest->title,
+            'description' => $contest->description,
             'starts_at' => $contest->starts_at,
             'duration' => $contest->duration,
             'nb_problems' => $contest->nb_problems,
