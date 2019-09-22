@@ -202,9 +202,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Profile Photo <span class="text-info">(Optional)</span></label>
+                                <label>Profile Photo: <span class="text-success"> 1024px by 1024px</span> <span class="text-info">(Optional)</span></label>
                                 <input name="profile_photo" id="profile_photo"
                                        placeholder="Profile Photo" type="file">
                             </div>
@@ -217,7 +217,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <p>
                                     <a href="<?php echo $passport_scan_photo ?>" target="_blank">Show My Passport</a>
                                 </p>
-                                <label>Passport Scan of 1st page <span class="text-info">(Optional)</span></label>
+                                <label>Passport Scan of 1st page: <span class="text-success"> 1024px by 1024px</span> <span class="text-info">(Optional)</span></label>
                                 <input name="passport_photo" id="passport_photo"
                                        placeholder="Passport Photo" type="file">
                             </div>
