@@ -677,7 +677,9 @@ blockquote {
 
 .navbar-brand img{
 	float: right;
-	padding: 0 15px;
+	/*padding: 0 15px;*/
+	padding-top:10px;
+	padding-bottom:10px;
 
 }
 
