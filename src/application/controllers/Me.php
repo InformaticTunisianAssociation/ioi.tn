@@ -80,7 +80,18 @@ class Me extends User_Controller {
             }
 
             if($this->form_validation->run() == false)
-                $this->error(validation_errors());
+            {
+                $toast = array(
+                    'toast_text' => trim(preg_replace('/\s+/',' ',validation_errors(" ","<br>"))),
+                    'toast_type' => 'danger'
+                );
+                $query_sting = http_build_query($toast);
+
+                redirect("/me/edit_info?{$query_sting}");
+
+            }
+
+                //$this->error(validation_errors());
 
             //Now we assume that the data is valid and we simply copy the password if it is given to its appropriate field
             if(isset($params['has_password']) and $params['has_password'] == true)
