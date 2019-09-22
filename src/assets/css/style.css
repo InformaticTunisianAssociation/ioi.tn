@@ -3380,3 +3380,17 @@ a.close-styler{
 .img-responsive {
 	max-height: 100%;
 }
+
+.titre {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.whitelink {
+	color: white;
+}
+
+.handels {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}

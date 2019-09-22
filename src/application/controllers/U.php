@@ -12,7 +12,7 @@ class U extends MY_Controller {
 		//LOAD JS/CSS FILES
         //
         //$this->load_css('/assets/ioi/css/auth/register.css');
-        //$this->load_js('/assets/ioi/js/auth/register.js');
+        $this->load_js('https://kit.fontawesome.com/ece789a372.js');
         //
         //LOAD JS/CSS FILES
         //$this->load->view('signup/index');
