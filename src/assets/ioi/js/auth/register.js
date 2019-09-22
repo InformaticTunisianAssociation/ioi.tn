@@ -38,6 +38,7 @@ function register() {
                 $('#register-error').addClass("alert");
                 $('#register-error').addClass("alert-danger");
                 $('#register-error').html(data.error);
+                window.scrollTo(0, 0);
             }
 
         });
