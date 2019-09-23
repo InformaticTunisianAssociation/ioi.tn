@@ -126,13 +126,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group">
                                 <label>School <span class="text-danger">(Required)</span></label>
                                 <input class="form-control" name="school_name" id="school_name"
-                                       placeholder="School naùe" type="text" value="<?php echo $school_name ?>">
+                                       placeholder="School name" type="text" value="<?php echo $school_name ?>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Grade <span class="text-danger">(Required)</span></label><br>
                                 <select name="grade">
+                                    <option <?php if($grade==null) echo "selected" ?> >Not selected</option>
                                     <option <?php if($grade=="7eme") echo "selected" ?> value="7eme">7ème année de base</option>
                                     <option <?php if($grade=="8eme") echo "selected" ?> value="8eme">8ème année de base</option>
                                     <option <?php if($grade=="9eme") echo "selected" ?> value="9eme">9ème année de base</option>

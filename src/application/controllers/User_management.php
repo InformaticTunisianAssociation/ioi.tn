@@ -54,8 +54,8 @@ class User_management extends Manager_Controller {
             $user_confirm_password	=  $this->input->post('confirm_password',true);
 
             $params = array(
-                //'firstname' => $firstname,
-                //'lastname' => $lastname,
+                'firstname' => $firstname,
+                'lastname' => $lastname,
                 'date_birth' => $date_birth,
                 'franceioi' => $franceioi,
                 'codeforces' => $codeforces,
@@ -76,8 +76,8 @@ class User_management extends Manager_Controller {
             $this->load->library('form_validation');
             $this->form_validation->set_data($params);
 
-            //$this->form_validation->set_rules('firstname', 'First name', 'required');
-            //$this->form_validation->set_rules('lastname', 'Last name', 'required');
+            $this->form_validation->set_rules('firstname', 'First name', 'required');
+            $this->form_validation->set_rules('lastname', 'Last name', 'required');
             $this->form_validation->set_rules('date_birth', 'Date of birth', 'required');
             $this->form_validation->set_rules('franceioi', 'France IOI', '');
             $this->form_validation->set_rules('codeforces', 'CodeForces', '');
@@ -100,7 +100,16 @@ class User_management extends Manager_Controller {
             }
 
             if($this->form_validation->run() == false)
-                $this->error(validation_errors());
+            {
+                $toast = array(
+                    'toast_text' => trim(preg_replace('/\s+/',' ',validation_errors(" ","<br>"))),
+                    'toast_type' => 'danger'
+                );
+                $query_sting = http_build_query($toast);
+
+                redirect("/user_management/edit_info/{$id}?{$query_sting}");
+
+            }
 
             //Now we assume that the data is valid and we simply copy the password if it is given to its appropriate field
             if(isset($params['has_password']) and $params['has_password'] == true)
@@ -162,11 +171,12 @@ class User_management extends Manager_Controller {
             assert($params['id']);
             $this->load->model('users_model');
             $this->users_model->update($params);
-            $_SESSION['user'] = $this->users_model->get($params['id']);
+            //$_SESSION['user'] = $this->users_model->get($params['id']);
             redirect(current_url());
         }
         $user = $this->users_model->get($id);
         $this->data['content'] = $this->load->view('dashboard/edit_profile',array(
+            'id' => $user->id,
             'firstname' => $user->firstname,
             'lastname' => $user->lastname,
             'email' => $user->email,
@@ -176,7 +186,10 @@ class User_management extends Manager_Controller {
             'codeforces' => $user->codeforces,
             'franceioi' => $user->franceioi,
             'school_name' => $user->school_name,
+            'knowledge_level' => $user->knowledge_level,
             'city' => $user->city,
+            'state' => $user->state,
+            'grade' => $user->grade,
             'profile_photo' => $user->photo_url,
             'passport_scan_photo' => $user->passport_scan_url
 
