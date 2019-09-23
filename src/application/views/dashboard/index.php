@@ -33,5 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </table>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <a href="/user_management/generate_users_csv" class="btn btn-primary">Download Users</a>
+                </div>
+            </div>
         </div>
     </section>

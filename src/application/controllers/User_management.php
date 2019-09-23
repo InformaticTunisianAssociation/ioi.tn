@@ -197,6 +197,58 @@ class User_management extends Manager_Controller {
         $this->load->view('base/index',$this->data);
     }
 
+    public function generate_users_csv()
+    {
+        $this->load->model('users_model');
+        $users = $this->users_model->get_all();
+        $rows = array(
+            array(
+                'id',
+                'username',
+                'email',
+                'firstname',
+                'lastname',
+                'date birth',
+                'city',
+                'state',
+                'school name',
+                'grade',
+                'knowledge level',
+                'france ioi',
+                'codeforces',
+                'phone',
+                'created at',
+                'updated at'
+            ),
+        );
+        foreach ($users as $user)
+        {
+            $rows[]= array(
+                $user->id,
+                $user->username,
+                $user->email,
+                $user->firstname,
+                $user->lastname,
+                $user->date_birth,
+                $user->city,
+                $user->state,
+                $user->school_name,
+                $user->grade,
+                $user->knowledge_level,
+                $user->franceioi,
+                $user->codeforces,
+                $user->phone,
+                $user->created_at,
+                $user->updated_at
+            );
+        }
+        $this->generate_csv($rows);
+
+
+    }
+
+
+
     private function get_random_user_profile_photo_name($username)
     {
         //This function generates a random name for the user images
