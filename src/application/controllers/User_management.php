@@ -13,6 +13,11 @@ class User_management extends Manager_Controller {
             $users_html .= $this->load->view('dashboard/partials/user_item',array(
                 'id' => $user->id,
                 'username' => $user->username,
+                'firstname' => $user->firstname,
+                'lastname' => $user->lastname,
+                'grade' => $user->grade,
+                'city' => $user->city,
+                'phone' => $user->phone
             ),true);
         }
         $this->data['content'] = $this->load->view('dashboard/index',array(

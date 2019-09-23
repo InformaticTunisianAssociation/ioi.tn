@@ -23,9 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    		<div class="col-md-12">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                        <th scope="col">username</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Grade</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Public Profile</th>
+                    </tr>
                     </thead>
                     <tbody>
                         <?php echo $users_html; ?>

@@ -8,8 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
 
             <div class="col-md-5 col-sm-12 footer-widget">
-                <h3 class="widget-title">About IOI.tn</h3>
-                <p class="p-5"><?php echo $about ?></p>
+                <?php /*<h3 class="widget-title">About IOI.tn</h3>*/ ?>
+                <img src="/assets/images/logo_ita.png" width="50%">
+               <p class="p-5"><?php echo $about ?></p>
 
             </div><!--/ End Recent Posts-->
 
@@ -92,6 +93,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div><!--/ Row end -->
+        <?php if($is_admin) { ?>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <a href="/user_management" class="btn">Admin Dashbord</a>
+                </div>
+            </div>
+        <?php } ?>
         <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
             <button class="btn btn-primary" title="Back to Top"><i class="fa fa-angle-double-up"></i></button>
         </div>

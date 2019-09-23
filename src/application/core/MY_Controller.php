@@ -46,6 +46,7 @@ class MY_Controller extends CI_Controller
             'address' => $this->settings_model->get('address'),
             'about' => $this->settings_model->get('about'),
             'facebook' => $this->settings_model->get('facebook'),
+            'is_admin' => isset($this->user->id) ? $this->user->role == 'admin' : false
         ),true);
 
 
